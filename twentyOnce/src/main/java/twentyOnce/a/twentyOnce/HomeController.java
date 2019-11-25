@@ -29,7 +29,7 @@ public class HomeController {
 	@Autowired
 	VController vcon;
 	
-	/**  개새끼야
+	/**  개새끼야  다시 한번 연구 해보자
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
