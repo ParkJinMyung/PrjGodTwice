@@ -10,9 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>list</title>
    <link rel="stylesheet" type="text/css" href="../resources/css/storecss/store.css">
-   <link rel="stylesheet" type="text/css" href="../resources/css/storecss/sto_menu.css">
+   <link rel="stylesheet" type="text/csss" href="../resources/css/storecss/sto_menu.css">
    <link rel="stylesheet" type="text/css" href="../resources/css/storecss/skel-noscript.css" />
-   <link rel="stylesheet" type="text/css" href="../resources/css/storecss/style.css" />
+   <link rel="stylesheet" type="text/css" href="../resources/css/storecss/store_style.css" />
    <link rel="stylesheet" type="text/css" href="../resources/css/storecss/style-desktop.css" />
 </head>
 <body>
