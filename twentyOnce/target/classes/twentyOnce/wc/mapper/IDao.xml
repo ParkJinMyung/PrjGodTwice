@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="twentyOnce.wc.dao.IDao">
+
+<!-- 
+코드, 사진 제목, 저장 경로, 진출 라운드, 탈락 여부, 승리 수, 매치 수, 우승 수, 게임 수
+
+WCODE	NUMBER(3,0) 코드
+WTITLE	VARCHAR2(30 BYTE) 사진 제목
+WMEMORY	VARCHAR2(50 BYTE) 저장 경로
+WROUND	NUMBER(2,0) 진출 라운드
+WCHANCE	NUMBER(1,0) 탈락 여부
+WWIN	NUMBER(3,0) 승리 수
+WMATCH	NUMBER(3,0) 매치 수
+WCHAMPION	NUMBER(3,0) 우승 수
+WGAME	 NUMBER(3,0) 게임 수
+ -->
+ 
+<!--  진행중 -->
+
+<update id="winnerUpdate">
+	UPDATE DZ_WORLDCUP
+	SET WC_ROUND=#{param1},
+	WC_WIN=WC_WIN+1,
+	WC_MATCH=WC_MATCH+1
+	WHERE WC_CODE=#{param2}
+</update>
+
+<update id="loserUpdate">
+	UPDATE DZ_WORLDCUP
+	SET WC_CHANCE=0,
+	WC_MATCH=WC_MATCH+1
+	WHERE WC_CODE=#{param1}
+</update>
+
+<select id="searchNominee" resultType="twentyOnce.wc.dto.NomineeDto">
+	SELECT WC_CODE, WC_TITLE, WC_MEMORY
+	FROM DZ_WORLDCUP
+	WHERE WC_ROUND=#{param1}  
+	AND WC_CHANCE=1
+</select>
+
+<!-- 마무리 -->
+
+<update id="championUpdate">
+	UPDATE DZ_WORLDCUP
+	SET WC_CHAMPION=WC_CHAMPION+1
+	WHERE WC_CODE=#{param1}
+</update>
+
+<update id="resetWc">
+	UPDATE DZ_WORLDCUP
+	SET WC_ROUND=16,
+	WC_CHANCE=1,
+	WC_GAME=WC_GAME+1
+	WHERE WC_TITLE LIKE '사나%'
+</update>
+
+<select id="bringChampion" resultType="twentyOnce.wc.dto.NomineeDto">
+	SELECT * FROM DZ_WORLDCUP
+	WHERE WC_CODE=#{param1}
+</select>
+
+<!-- 통계창 -->
+
+<select id="statsView" resultType="twentyOnce.wc.dto.NomineeDto">
+	SELECT * FROM DZ_WORLDCUP
+	WHERE WC_TITLE LIKE '사나%'
+</select>
+
+</mapper>

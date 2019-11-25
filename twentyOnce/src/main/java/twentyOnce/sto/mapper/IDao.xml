@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="twentyOnce.sto.dao.IDao">      
+    <select id="list" resultType="twentyOnce.sto.dto.ProductDto">
+			SELECT STO_NAME, STO_PRICE, STO_DATE, 
+			STO_CODE, STO_COUNTRY, STO_QUANTITY, STO_IMAGEURL FROM TW_STORE
+    </select>
+       
+    <insert id="write">
+		INSERT INTO TW_STORE(STO_NAME, STO_PRICE, STO_DATE, STO_CODE, STO_COUNTRY, STO_QUANTITY, 
+		STO_IMAGEURL, STO_CONTANT, STO_DETAILIMAGEURL1, STO_DETAILIMAGEURL2, STO_DETAILIMAGEURL3)
+		VALUES(#{param1}, #{param4}, SYSDATE, TW_STORE_SEQ.NEXTVAL, #{param5},  
+		#{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11})		
+    </insert>
+    
+    <!-- 주문 정보 -->
+	<insert id="orderInfo">
+	 	 INSERT INTO TBL_ORDER(ORDERID, USERID, ORDERREC, USERADDR1, USERADDR2, USERADDR3, ORDERPHONE, AMOUNT, ORDERDATE)
+	     VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9})
+	</insert>
+    
+    <!-- 주문 상세 정보 -->
+	<insert id="orderInfo_Details">
+	 INSERT INTO TBL_ORDER_DETAILS(ORDERDETAILSNUM, ORDERID, GDSNUM, CARTSTOCK)
+	     SELECT TBL_ORDER_DETAILS_SEQ.NEXTVAL, #{param1}, GDSNUM, CARTSTOCK
+	         FROM TBL_CART
+	</insert>
+    
+    <insert id="cart">
+    	INSERT INTO TW_CART (
+    		CART_ID, USER_ID, PRODUCT_ID, AMOUNT
+    	) VALUES(
+    		SEQ_CART.NEXTVAL, #{param2}, #{param3}, #{param4}
+    	)
+    </insert>
+    
+    <update id="modify">
+    	UPDATE TW_STORE SET STO_NAME=#{param1},
+				STO_PRICE=#{param3}, STO_COUNTRY=#{param4},  
+				STO_QUANTITY=#{param5}, STO_CONTANT=#{param6} WHERE STO_CODE=#{param2}
+    </update>
+    
+    <delete id="delete">
+		DELETE FROM TW_STORE WHERE STO_CODE=#{param1}
+    </delete>
+    
+    <update id="hitUp">
+    	UPDATE MVC_BOARD SET BHIT=BHIT+1 WHERE BID=#{param1}
+    </update>
+    
+	<select id="contentView" resultType="twentyOnce.sto.dto.ProductDto">
+        SELECT * FROM TW_STORE WHERE STO_CODE=#{param1}
+    </select>
+    
+    <select id="order_view" resultType="twentyOnce.sto.dto.ProductDto">
+        SELECT * FROM TW_STORE WHERE STO_CODE=#{param1}
+    </select>
+    
+    <update id="replyShape">
+    	UPDATE MVC_BOARD SET BSTEP=BSTEP+1
+				 WHERE BGROUP=#{param1} AND BSTEP>#{param2}
+    </update>
+    
+	<!-- 카트 담기 -->
+	<insert id="addcart">
+	 INSERT INTO TBL_CART (CARTNUM, USERID, GDSNUM, CARTSTOCK)
+	     VALUES (TBL_CART_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3})
+	</insert>
+	
+	<select id="cartList" resultType="twentyOnce.sto.dto.CartListVo">
+		SELECT
+    ROW_NUMBER() OVER(ORDER BY C.CARTNUM DESC) AS NUM,
+     C.CARTNUM, C.USERID, C.GDSNUM, C.CARTSTOCK, C.ADDDATE,
+     G.STO_NAME, G.STO_PRICE, G.STO_IMAGEURL
+ FROM TBL_CART C
+     INNER JOIN TW_STORE G
+         ON C.GDSNUM = G.STO_CODE
+     WHERE C.USERID = #{param1}
+	</select>
+	
+	<!-- 특정 유저의 주문 목록 -->
+	<select id="orderList" resultType="twentyOnce.sto.dto.OrderVO">
+	 SELECT * FROM TBL_ORDER WHERE USERID= #{param1}
+	</select>
+	
+	<delete id="deleteCart">
+		DELETE TBL_CART
+			WHERE CARTNUM = #{param1}
+				AND USERID = #{param2}	
+	</delete>
+	
+	<delete id="cartAllDelete">
+		DELETE TBL_CART 
+		WHERE USERID = #{param1}
+	</delete>
+	
+	<select id="orderView" resultType="twentyOnce.sto.dto.OrderListVO">
+		SELECT O.ORDERID, O.USERID, O.ORDERREC, O.USERADDR1, O.USERADDR2, O.USERADDR3, O.ORDERPHONE, O.AMOUNT, O.ORDERDATE, O.DELIVERY,
+        D.ORDERDETAILSNUM, D.GDSNUM, D.CARTSTOCK,
+        S.STO_NAME, S.STO_IMAGEURL, S.STO_PRICE
+        FROM TBL_ORDER O
+            INNER JOIN TBL_ORDER_DETAILS D
+                ON O.ORDERID = D.ORDERID
+            INNER JOIN TW_STORE S
+                ON D.GDSNUM = S.STO_CODE 
+            WHERE O.USERID = #{param1}
+                AND O.ORDERID = #{param2}
+	</select> 
+	
+	<!-- 배송 상태 -->
+	<update id="delivery">
+		 UPDATE TBL_ORDER SET DELIVERY = #{param1} WHERE ORDERID = #{param2}
+	</update>
+</mapper>

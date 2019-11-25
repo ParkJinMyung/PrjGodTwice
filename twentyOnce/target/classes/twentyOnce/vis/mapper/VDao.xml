@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="twentyOnce.vis.dao.VDao">
+
+<insert id="firstVisit">
+INSERT INTO VIS_VISITS VALUES
+(#{param1}, '', SYSDATE, '', '')
+</insert>
+
+<update id="visitUpdate">
+UPDATE VIS_VISITS
+SET MEMBERID=#{param1, jdbcType=VARCHAR},
+LASTVISIT=SYSDATE,
+VISITCOUNT=#{param2}
+WHERE SESSIONID=#{param3}
+</update>
+
+<!-- 통계 요약 -->
+ 
+<select id="totalviewsGet" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM VIS_VISITS
+</select>
+
+<select id="dailyviewsGet" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN TRUNC(SYSDATE, 'DD')
+AND SYSDATE
+</select>
+
+<select id="weeklyviewsGet" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN NEXT_DAY(SYSDATE-7, '월요일')
+AND SYSDATE
+</select>
+
+<select id="monthlyviewsGet" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN TRUNC(SYSDATE, 'MONTH')
+AND SYSDATE
+</select>
+
+<!-- 통계 그래프 -->
+
+<select id="graphviewsGet" resultType="twentyOnce.vis.dto.GraphDto">
+SELECT SUBSTR(TRUNC(FIRSTVISIT, 'DD'),7) AS GRPHDATE,
+COUNT(*) AS GRPHCOUNT
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN TRUNC(SYSDATE-14, 'DD')
+AND SYSDATE
+GROUP BY TRUNC(FIRSTVISIT, 'DD')
+ORDER BY TRUNC(FIRSTVISIT, 'DD')
+</select>
+
+<!-- 통계 상세 -->
+
+<select id="twoweeksviewsGet" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN TRUNC(SYSDATE-13+#{param1}, 'DD')
+AND SYSDATE+#{param1}
+</select>
+
+<select id="avgpageviewsGet" resultType="java.lang.Integer">
+SELECT ROUND(AVG(VISITCOUNT))
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN TRUNC(SYSDATE-13+#{param1}, 'DD')
+AND SYSDATE+#{param1}
+</select>
+
+<select id="avguseminsGet" resultType="java.lang.Integer">
+SELECT ROUND(AVG((LASTVISIT-FIRSTVISIT) * 24 * 60)) "ONTIME"
+FROM VIS_VISITS
+WHERE FIRSTVISIT
+BETWEEN TRUNC(SYSDATE-13+#{param1}, 'DD')
+AND SYSDATE+#{param1}
+ORDER BY FIRSTVISIT
+</select>
+
+<select id="maxuseidGet" resultType="java.lang.String">
+SELECT MEMBERID
+FROM VIS_VISITS
+GROUP BY MEMBERID
+HAVING COUNT(*)=(SELECT MAX(MYCOUNT)
+FROM (SELECT MEMBERID, COUNT(*) AS MYCOUNT
+FROM VIS_VISITS
+WHERE MEMBERID
+IN (SELECT ID
+FROM MEM_MEMBER
+WHERE ADMIN=0)
+AND FIRSTVISIT
+BETWEEN TRUNC(SYSDATE-13+#{param1}, 'DD')
+AND SYSDATE+#{param1}
+GROUP BY MEMBERID))
+</select>
+
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="twentyOnce.sch.dao.IDao"> 
+
+<!--
+SCODE	NUMBER(3,0)
+SDATE	DATE
+STITLE 	VARCHAR2(20 BYTE)
+SCONTENT	VARCHAR2(60 BYTE)
+SLOCATION	VARCHAR2(30 BYTE)
+-->
+
+<!-- java.util.ArrayList -->
+
+<select id="searchDate" resultType="java.lang.String">
+	SELECT TO_CHAR(SCH_DATE, 'DD') SCH_DATE
+	FROM SCH_SCHEDULE 
+	WHERE TO_CHAR(SCH_DATE, 'YYYY/MM') LIKE #{param1}
+</select>
+
+<select id="searchTitle" resultType="java.lang.String">
+	SELECT SCH_TITLE
+	FROM SCH_SCHEDULE 
+	WHERE TO_CHAR(SCH_DATE, 'YYYY/MM') LIKE #{param1}
+</select>
+
+<select id="searchCode" resultType="java.lang.String">
+	SELECT SCH_CODE
+	FROM SCH_SCHEDULE 
+	WHERE TO_CHAR(SCH_DATE, 'YYYY/MM') LIKE #{param1}
+</select>
+
+<select id="getSchedule" resultType="twentyOnce.sch.dto.ScheduleDto">
+	SELECT SCH_TITLE, SCH_DATE, SCH_CONTENT, SCH_LOCATION
+	FROM SCH_SCHEDULE
+	WHERE SCH_CODE=#{param1}
+</select>
+
+
+
+<!-- <select id="scheduleAdd1">
+	INSERT INTO SCH_SCHEDULE VALUES
+	(SEQ_SCH.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4})
+</select>
+
+<select id="scheduleAdd2">
+	INSERT INTO SCH_SCHEDULE VALUES
+	(SEQ_SCH.NEXTVAL, #{param1}, #{param2}, #{param3}, null)
+</select> -->
+
+<select id="scheduleAdd">
+	INSERT INTO SCH_SCHEDULE VALUES
+	(SEQ_SCH.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4})
+</select>
+
+<!-- 
+<resultMap id="Schedule" type="java.util.HashMap">
+	<result javaType="java.lang.String" column="SDATE" property="SDATE"  />
+	<result javaType="java.lang.String" column="STITLE" property="STITLE"  />
+</resultMap>
+
+<select id="searchSchedule" resultMap="Schedule">
+	SELECT TO_CHAR(SDATE, 'DD') SDATE, STITLE 
+	FROM SCH_SCHEDULE 
+	WHERE TO_CHAR(SDATE, 'YYYY/MM') LIKE #{param1}
+</select>
+ -->
+
+</mapper>

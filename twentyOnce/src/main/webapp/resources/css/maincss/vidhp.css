@@ -1,0 +1,113 @@
+
+#main {
+    position: fixed;
+    top: 0;
+    left: 0;
+/*    background-image:url(../../image/video/concert.png);*/
+    width: 100%;
+    height: 90%;
+    background-size: auto;
+}
+h2{
+    position: absolute;
+    left: 47%;
+    color: #dbbae5;
+    font-size: 30px;
+    top: 15%;
+}
+#top {
+    margin: 160px 0 0 0;
+    border-top: dotted black 1px;
+}
+/* #article{
+    border: solid black;
+} */
+#list-nav{
+    text-align: center;
+}
+#list-nav img{
+    width: 200px;
+    height: 120px;
+}
+#list-nav .img1{
+    position: fixed;
+    left: 80%;
+    top: 30%; 
+}
+#list-nav .img2{
+    position: fixed;
+    left: 80%;
+    top: 44%;
+
+}
+#list-nav .img3{
+    position: fixed;
+    left: 80%;
+    top: 58%;
+}
+#list-nav .img4{
+    position: fixed;
+    left: 80%;
+    top: 72%;
+}
+#list-nav a {
+    display: inline;
+    width: 30px;
+    height: 30px;
+    text-indent: -9999px;
+   /* background-image:url(../../image/video/list-nav.png); */
+    background-repeat: no-repeat;
+    line-height: 0;
+    text-decoration: none;
+} 
+#list-nav a:link{
+    color: black;
+}
+#list-nav a:visited{
+    color:black;
+}
+
+#list-nav a:hover {
+    background-image: url(../../image/video/list-nav-on.png);
+}
+
+.list-nav-on {
+    width:30px;
+    height:30px;
+    background-image: url(../../image/video/list-nav-on.png);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
+.list-nav-off {
+    background-image: url(../../image/video/list-nav.png);
+}
+#left img{
+    float: left;
+    width:30px;
+    height:400px;
+}
+#right img{
+    float: right;
+    width:30px;
+    height:400px;
+}
+#main .concert{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+iframe{
+    position: absolute;
+    left: 420px;
+    top: 250px;
+}
+#lg a:link {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#lg a:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}

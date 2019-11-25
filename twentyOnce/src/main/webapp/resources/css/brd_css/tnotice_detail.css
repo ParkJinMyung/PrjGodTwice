@@ -1,0 +1,71 @@
+table {
+	border-collapse: collapse;
+	background: #fff;
+	border-top: 3px solid #ccc;
+	border-bottom: 3px solid #ccc;
+	margin: 50px auto;
+}
+
+thead #head_top {
+	font-family: "맑은 고딕"; /* 글자 스타일 */
+	font-size: 15px; /* 글자 크기 */
+	font-weight: 300; /* 글자 굵기 */
+	color: #808080; /* 글자 색 */
+	height: 40px;
+	text-align: left;
+	padding: 10px;
+	border-bottom: 1px solid #858d99;
+	background-color:#c0c0c0;
+}
+
+thead #head_bottom{
+	font-family: "맑은 고딕"; /* 글자 스타일 */
+	font-size: 12px; /* 글자 크기 */
+	font-weight: 200; /* 글자 굵기 */
+	color: #808080; /* 글자 색 */
+	text-align: left;
+	height: 25px;
+	padding: 6px;
+	border-bottom: 1px solid #858d99;
+	background-color: #ffffff;
+}
+
+tbody tr td {
+	font-family: "맑은 고딕"; /* 글자 스타일 */
+	font-size: 11px; /* 글자 크기 */
+	font-weight: 700; /* 글자 굵기 */
+	color: #5f6062; /* 글자 색 */
+	padding: 5px 5px 5px 5px; /* 내부 간격 시계방향 */
+	border-bottom: 1px solid #e0e0e0;
+	
+}
+
+
+
+table.twidth {
+	width: 1050px; /* 창 크기 */
+}
+
+caption {
+	
+	text-align: left;
+	height: 20px;
+	padding: 5px 0;
+	font-family: "맑은고딕";
+	font-size: 10px;
+}
+
+#content{
+	font-size: 11px; /* 글자 크기 */
+	font-weight: 500; /* 글자 굵기 */
+	color:#5f6062;
+	border: 0px solid #ccc;
+	border-bottom: 1px solid #e0e0e0;
+	height: 200px;
+	
+}
+div{
+	text-align: center
+}
+
+

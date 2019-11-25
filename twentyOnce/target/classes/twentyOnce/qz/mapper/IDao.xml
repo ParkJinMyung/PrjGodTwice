@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="twentyOnce.qz.dao.IDao">
+
+<select id="quizGet" resultType="twentyOnce.qz.dto.QuizDto">
+	SELECT * FROM DZ_QUIZ
+	WHERE QZ_CODE=#{param1}
+</select>
+
+<insert id="quizAdd">
+	INSERT INTO DZ_QUIZ VALUES
+	(SEQ_QZ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7})
+</insert>
+
+</mapper>

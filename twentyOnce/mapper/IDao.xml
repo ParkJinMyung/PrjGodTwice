@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="twentyOnce.att.dao.IDao">
+	
+<select id="stampSearch" resultType="java.lang.String">
+	SELECT TO_CHAR(ATT_DATE, 'DD') ATT_DATE
+	FROM MEM_ATTENDANCETABLE 
+	WHERE  ATT_ID=#{param1}
+	AND TO_CHAR(ATT_DATE, 'YYYY/MM') LIKE #{param2}
+</select>
+	
+<insert id="todayStamp">
+	INSERT INTO MEM_ATTENDANCETABLE VALUES
+	(SEQ_ATT.NEXTVAL, #{param1}, SYSDATE)
+</insert>	
+
+</mapper>

@@ -1,0 +1,1312 @@
+@charset "utf-8";
+
+@media print{
+    * {color:#000;}
+    a, a:link, a:hover, a:visited, a:active {color:#000;}
+    #pop_wrap #header span,
+    .pop_btn {display:none;}
+}
+
+/* Common */
+.temp {color:#d64228; font-size:12px; letter-spacing:0;}/*기온*/
+.temp strong {font-family:tahoma; font-size:11px;}
+.temp_mx {color:#eb0c00; font-size:12px; letter-spacing:0;}/*최고기온*/
+.temp_mx strong {font-family:tahoma; font-size:11px;}
+.temp_mn {color:#2c6cd9; font-size:12px; letter-spacing:0;}/*최저기온*/
+.temp_mn strong {font-family:tahoma; font-size:11px;}
+.rain {font-size:11px; letter-spacing:0;}/*강수*/
+.rain strong {font-family:tahoma;}
+
+/* Main */
+.weather_info {overflow:hidden; width:591px; border:1px solid #ddd;}
+.w_map {float:left; width:328px;}
+.w_map .tab {width:325px; height:35px; margin-left:2px;}
+.w_map .tab li {float:left; padding:8px 0 0 11px;}
+
+.main_map {position:relative; width:327px; height:303px; border-top:1px solid #ddd; border-right:1px solid #ddd; background:url(https://ssl.pstatic.net/static/weather/images/map_main.gif) no-repeat 0 0;}
+.zone {position:absolute; width:39px; height:37px; z-index:10; text-align:center; cursor:pointer; cursor:hand;}
+.zone img {display:block; margin:0 auto -2px auto;}
+.zone .temp {font-family:tahoma; font-size:10px;}
+.main_map a:hover{text-decoration:none;}
+.main_map .z1 {left:94px; top:59px;}/*서울,경기*/
+.main_map .z2 {left:31px; top:66px;}/*서해5도*/
+.main_map .z3 {left:144px; top:40px;}/*영서*/
+.main_map .z4 {left:191px; top:52px;}/*영동*/
+.main_map .z5 {left:137px; top:109px;}/*충북*/
+.main_map .z6 {left:84px; top:119px;}/*충남*/
+.main_map .z7 {left:189px; top:115px;}/*경북*/
+.main_map .z8 {left:183px; top:189px;}/*경남*/
+.main_map .z9 {left:256px; top:43px;}/*울릉,독도*/
+.main_map .z10 {left:129px; top:166px;}/*전북*/
+.main_map .z11 {left:82px; top:196px;}/*전남*/
+.main_map .z12 {left:44px; top:254px;}/*제주도*/
+.main_map .date {position:absolute; right:12px; bottom:10px; font-size:11px; letter-spacing:-1px;}
+.main_map .date span {font-family:tahoma; letter-spacing:0;}
+
+.w_info {position: relative;float:right; width:263px;}
+.w_info .link_more{position:absolute; right:8px; top:45px; padding: 5px;}
+.w_info .now_zone {height:31px; padding:4px 10px 0 0; border-bottom:1px solid #ddd; color:#5f5f5f; font-size:11px; text-align:right;}
+.w_info .now_zone span {letter-spacing:-1px;}
+.w_info .now_zone img {margin:0 -3px 2px -3px; vertical-align:middle;}
+.w_info .now_zone .temp {margin-right:3px;}
+
+.w_news {border-top:2px solid #f6f7f8;}
+.w_news dt {position:relative; padding:11px 0 5px 14px;}
+.w_news dt a {position:absolute; right:13px; top:13px;}
+.w_news .thum {_display:inline; float:left; margin-left:13px; border:1px solid #d4d4d4;}
+.w_news .text {float:right; width:127px; margin-top:2px; padding-right:10px;}
+.w_news .text .tit {font-size:14px; font-weight:bold; line-height:1.4; letter-spacing:-1px;}
+.w_news .text .tit a, .w_news .text .tit a:visited, .w_news .text .tit a:hover {color:#000063;}
+.w_news .text .date {padding-top:2px; color:#ad6161; font-size:11px;}
+.w_news .text .date img {margin:0 5px; vertical-align:middle;}
+.w_news .text .date span {color:#767676; font-size:10px; font-family:tahoma;}
+
+.w_news .news_list {clear:both; width:243px; padding:12px 0 3px 0; margin-left:10px; border-bottom:1px solid #f3f3f4;}
+.w_news .news_list li {height:20px; padding-left:10px; background:url(https://ssl.pstatic.net/static/weather/images/bu_dot2.gif) no-repeat 4px 4px;}
+.w_news .news_list li a {color:#000063;}
+.w_news .news_list li a:hover, .w_news .news_list li a:visited {color:#000063;}
+
+.w_use_info {overflow:hidden;}
+.w_use_info dt {height:21px; margin:13px 0 0 14px;}
+.w_use_info dd ul li {float:left;}
+.w_use_info dd ul li img {vertical-align:top;}
+
+.w_info .sp_news {overflow:hidden; clear:both; margin-top:11px; border-top:1px solid #ebebec;}
+.w_info .sp_news dt {float:left; padding:10px 7px 0 13px;}
+.w_info .sp_news dd {float:left; padding-top:9px; *padding-top:10px; letter-spacing:-1px;}
+.w_info .sp_news dd.date {float:right; padding:8px 10px 0 0; color:#767676; font-family:tahoma; font-size:11px; letter-spacing:0;}
+
+.zone_weather {clear:both; position:relative; width:100%; z-index:100;}
+.zone_weather .tit {height:20px; padding:25px 0 0 3px;}
+.zone_weather .tit .emp {position:absolute; right:0; bottom:5px;}
+.zone_weather .tit .emp a {display:inline-block; padding-right:5px; font-size:11px; color:#666; letter-spacing:-1px; background:url(https://ssl.pstatic.net/static/weather/images/bu_arr5.gif) right 2px no-repeat}
+h3.tit_main {display:inline; margin-right:6px;}
+
+.txt_ip{font-family:'돋움',Dotum,Helvetica;letter-spacing:0}
+.layer_zone {position:absolute; *padding-top:6px; filter:progid:DXImageTransform.Microsoft.Shadow(color=#cccccc,direction=135,strength=1);}
+.layer_zone img {border:none;}
+.layer_zone .layer_arr {position:absolute; left:73px; top:-6px; width:11px; height:6px; padding-bottom:12px}
+.layer_zone .layer_content {position:relative; overflow:visible; z-index:100; width:470px; border:1px solid #a2a2a2; background:#ffffff;}
+.layer_zone .layer_body {padding:14px 13px 4px 12px; text-align:left; letter-spacing:-1px;}
+.layer_zone .layer_body h5 {margin:0 0 9px 2px; color:#444; font-size:12px;}
+.layer_zone .layer_body ul li {width:435px; margin-bottom:7px; padding-left:10px; background:url(https://ssl.pstatic.net/static/weather/images/bu_dot5.gif) no-repeat 5px 5px; color:#757575; font-size:11px; line-height:15px;}
+.layer_zone .layer_body ul li span {color:#000;}
+.layer_zone .close_layer{position:absolute; top:10px; right:10px;}
+.layer_zone .shadow{ position:absolute; width:100%; height:100%; overflow:visible; z-index:1; _display:none;}
+*:first-child+html .layer_zone .shadow{display:none;}
+.layer_zone .shadow2{ left:1px; top:1px; background:url(https://ssl.pstatic.net/static/common/layer/shadow3.png);}
+
+.zone_select {position:relative; z-index:99; width:593px; height:42px; margin-bottom:15px; background:url(https://ssl.pstatic.net/static/weather/images/bg_zone_sel.gif) no-repeat 0 0;}
+.zone_select .btn_view {position:absolute; right:10px; top:10px;}
+.zone_select .z_select {float:left;padding:11px 0 0 60px;}
+.zone_select .btn_inquire {float:left;margin-left:4px; padding-top: 11px;}
+.zone_select .btn_view a,.zone_select .btn_inquire a {display: block;}
+
+/* 지역선택 */
+.z_select .ipt {display:inline; float:left; position:relative; margin:0 0 0 4px; overflow:hidden}/* 090630 */
+.z_select .ipt span.show{display:block; position:absolute; right:1px; top:2px; width:17px; height:17px; background:url(https://ssl.pstatic.net/static/weather/images/sel_arr.gif) no-repeat; cursor:pointer;}
+.input_zone{display:block; height:auto; padding:4px 15px 3px 4px; _padding-bottom:2px; border:1px solid #ccc; background:#fff; color:#333; text-decoration:none;}/* 090630 */
+.input_zone:hover {text-decoration:none;}
+.z_select .on .input_zone {font-weight:bold; letter-spacing:-1px;}
+.z_select .on span.show {background:url(https://ssl.pstatic.net/static/weather/images/sel_arr_on.gif) no-repeat;}
+
+.m_zone1 {float:left; width:278px}
+.m_zone2 {float:right; width:305px;}
+.m_zone1 h4,
+.m_zone2 h4 {clear:none !important; float:none !important; margin:0 0 7px 0 !important; padding-left:2px !important; background:none !important; color:#003366 !important; font-size:12px; letter-spacing:-1px;}
+.m_zone1 h4 span,
+.m_zone2 h4 span {padding-left:15px; background:url(https://ssl.pstatic.net/static/weather/images/bar2.gif) no-repeat 7px 0; color:#666; font-size:11px; font-weight:normal;}
+.m_zone1 .link,
+.m_zone2 .link {float:right; margin-top:9px; padding-left:7px; background:url(https://ssl.pstatic.net/static/weather/images/bu_arr2.gif) no-repeat 0 3px; *background-position:0 2px; font-size:11px; letter-spacing:-1px;}
+.m_zone1 .link a,
+.m_zone2 .link a {color:#333;}
+
+.m_tbl {width:278px; border:1px solid #d3d3d3; border-collapse:collapse;}
+.m_tbl th {border-right:1px solid #d9d9d9; border-bottom:1px solid #d3d3d3; color:#333; text-align:center;}
+.m_tbl th span {color:#767676; font-family:tahoma; font-size:10px; font-weight:normal;}
+.m_tbl td {height:46px;border-bottom:1px solid #d3d3d3;color:#333;font-size:11px;font-family:dotum;text-align:center}
+.m_tbl td.time {border-right:1px solid #d9d9d9; color:#666;}
+.m_tbl td.info {text-align:left; font-size:12px;}
+.m_tbl td.info p {margin-top:1px; color:#666; font-size:11px;}
+.m_tbl td.info .temp {color:#d64228; font-size:12px; letter-spacing:0;}
+.m_tbl td.info .temp2 {font-size:10px; letter-spacing:0;}
+.m_tbl td.info .temp,
+.m_tbl td.info .temp2 strong {font-family:tahoma; font-size:11px;}
+/* 090818 */
+.m_tbl td.info .temprature2 {font-size:10px; letter-spacing:0;}
+.m_tbl td.info .temprature2 strong {font-family:tahoma; font-size:11px;}
+/* //090818 */
+.m_tbl td.info .temp,
+.m_tbl td.info .temp2 strong {font-family:tahoma; font-size:11px;}
+.m_tbl tr.now td {height:65px;font-size:12px}
+.m_tbl tr.now td.info {letter-spacing:-1px;}
+.m_tbl tr.now td.info p{line-height:16px}
+.m_tbl tr.now td.info .temp2 {margin-left:2px;}
+.m_tbl tr.now td.info .temp3{color:#636563}
+.m_tbl tr.line td {border-bottom:1px solid #edeff1;}
+
+.today_world {clear:both; float:left; position:relative; width:593px; margin-top:25px;}
+.today_world .tw_tit {height:20px; border-bottom:2px solid #666;}
+.today_world .tw_tit h3 {margin-left:3px;}
+.today_world .td_list {overflow: hidden;width:593px; margin-top:10px;}
+.today_world .td_list li {float:left; width:97px; height:96px; text-align:center; line-height:1.3;}
+.today_world .td_list li + li {border-left:1px solid #f0f0f0;}
+.today_world .td_list li .city {color:#5f5f5f;}
+.today_world .td_list li .ico {margin-bottom:3px; text-align:center;}
+.today_world .link_more {position:absolute; right:0; top:0; padding: 4px 0 5px 5px;}
+
+/* 서브공통 */
+#content h3.title {height:24px; margin:13px 0 0 0;}
+#content h3.title img,
+#content h3.title2 img {margin-left:6px;}
+#content h3.title2 {height:23px; margin:13px 0 10px 0; border-bottom:2px solid #c5cbd1;}
+/* 탭 */
+.tab_out {position:relative; z-index:20; width:593px; margin-bottom:20px; }
+.tab_default {width:591px; height:31px; margin-bottom:20px; border-right:1px solid #d7d7d7; border-left:1px solid #d7d7d7; background:url(https://ssl.pstatic.net/static/weather/images/bg_tab.gif) repeat-x 0 0;}
+.tab_default li {float:left; height:20px; padding:10px 10px 0 10px; letter-spacing:-1px;}
+.tab_default li a,
+.tab_default li a:visited {color:#333;}
+.tab_default li.on {position:relative; border:1px solid #d7d7d7; border-bottom:none; background:#fff url(https://ssl.pstatic.net/static/weather/images/bu_arr4.gif) no-repeat 50% bottom;}
+.tab_default li.on a {font-weight:bold;}
+.tab_default li.first {border-left:none;}
+.tab_default li.on .bar {display:inline; _display:none; position:absolute; right:-3px !important; top:0; width:2px; height:29px; background:url(https://ssl.pstatic.net/static/weather/images/bar3.gif) no-repeat 0 0;}
+.tab_default li .bar {display:none;}
+/* 090626 2depth 레이어 */
+.tab_out .tab_open{margin:0 !important}
+.tab_out .tab_bx {overflow:hidden; position:absolute; left:0; top:31px; width:591px; border:1px solid #d7d7d7; border-top:none; background:#fff;}
+.tab_out .tab_bx div{zoom:1}
+.tab_out .tab_bx p {margin:12px 0 0 12px; font-size:11px; font-weight:bold; letter-spacing:-1px;}
+.tab_out .tab_bx p a {padding-right:8px; background:url(https://ssl.pstatic.net/static/weather/images/bu_arr7.gif) no-repeat right 2px; color:#000063;}
+.tab_out .tab_bx ul {overflow:hidden;width:auto;padding:9px 0 1px 13px}
+.tab_out .tab_bx li {float:left; width:63px; height:21px; white-space:nowrap;}
+.tab_out .tab_bx li a:hover,
+.tab_out .tab_bx li.on a {font-weight:bold; text-decoration:underline; letter-spacing:-1px;}
+.tab_out .tab_bx .btn_close {position:absolute; right:6px; top:6px;}
+/* 2depth (레저/바다) */
+.tab_out .open {position:static;z-index:10;margin-bottom:15px}
+.tab_out .open .sports{width:575px}
+.tab_out .open .sports li  {width:115px;}
+.tab_out .open .sports.v1 li{width:190px}
+.tab_out .open .way li  {width:82px;}
+.tab_out .open .way_sub {width:566px; margin:1px 0 0 12px; padding:12px 0 0 1px; border-top:1px solid #ebebeb;}
+.tab_out .open .way_sub li {width:82px;}
+.tab_out .open .sea li  {width:140px;}
+.tab_out .scroll{overflow-y:auto;height:136px}
+
+/* 데이터 테이블(기존) */
+.tbl_type1 {clear:both; width:592px; *width:593px; border:1px solid #d9d9d9; border-collapse:collapse;}
+.tbl_type1 thead th {height:28px; border-right:1px solid #eaecee; border-bottom:1px solid #dcdde0; background:#f6f6f6; color:#333; text-align:center;}
+.tbl_type1 tbody th {border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; color:#333; font-size:12px; font-weight:normal; text-align:center;}
+.tbl_type1 tbody th.th {height:48px; padding:0; font-size:12px; line-height:1.3; letter-spacing:0;}
+.tbl_type1 tbody th.th2 {padding:8px 10px; font-size:12px; font-weight:bold; text-align:left;}
+.tbl_type1 tbody td {padding:8px 10px; border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; line-height:1.4; text-align:left;}
+.tbl_type1 tbody td.tc {padding:8px 5px; text-align:center;}
+.tbl_type1 tbody td.ico {padding:0; text-align:center;}
+.tbl_type1 tbody td.tit a:hover {font-weight:bold; letter-spacing:-1px;}
+.tbl_type1 tbody tr.on td {background:#fafafa;}
+.tbl_type1 tbody tr.on td.tit a {font-weight:bold; text-decoration:underline; letter-spacing:-1px;}
+.tbl_type1 .line,
+.tbl_type2 .line,
+.tbl_type3 .line {border-right:1px solid #d9d9d9;}
+.tbl_type1 tr.line th, .tbl_type1 tr.line td,
+.tbl_type2 tr.line th, .tbl_type2 tr.line td,
+.tbl_type3 tr.line th, .tbl_type3 tr.line td {border-bottom:1px solid #d9d9d9;}
+
+.tbl_type2 {clear:both; width:593px; border:1px solid #d9d9d9; border-collapse:collapse;}
+.tbl_type2 th {height:28px; border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; background:#fafafa; color:#333; font-weight:normal; text-align:center;}
+.tbl_type2 th.th {padding-left:10px; text-align:left;}
+.tbl_type2 td {padding:8px 10px; border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; line-height:1.4; text-align:left;}
+
+.tbl_type4 {width:593px;border:1px solid #d9d9d9; border-collapse:collapse;}
+.tbl_type4 th {padding:8px 0 6px;color:#333;text-align:center;letter-spacing:-1px;border-right:1px solid #eaecee;border-bottom:1px #dddce1 solid;background:#f6f6f6;}
+.tbl_type4 tbody th.th {padding:0;width:75px;width/*\**/:76px\9;*width:74px;font-size:12px;line-height:1.3;letter-spacing:0;border-bottom:1px solid #eaecee;border-right:1px solid #eaecee;background:none}
+.tbl_type4 tbody td {border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; line-height:1.4; text-align:left;}
+.tbl_type4 .line {border-right:0;}
+.tbl_type4 .line th.th, .tbl_type4 .line td {border-bottom:0;}
+.txt_cell {padding:0;}
+.txt_cell p {margin:8px 10px;line-height:1.4;}
+.w234 {width:233px;width/*\**/:232px\9;*width:234px}
+.w110 {width:110px}
+
+/* 도시별 날씨 */
+.left_map {float:left; width:262px;}
+/* 090804 */
+.z_map {width:250px; border:1px solid #d8d8d8; margin:0 0 0 10px;}
+.z_map a:hover {text-decoration:none;}
+.z_map .tab {width:246px; height:34px; margin:0 0 0 4px;}
+/* //090804 */
+.z_map .tab li {float:left; padding:7px 2px 0 0;}
+
+.z_map .map {position:relative; z-index:10; width:250px; height:199px;}
+.z_map .m1 {background:url(https://ssl.pstatic.net/static/weather/images/map1.gif) no-repeat 0 0;}
+.z_map .m2 {background:url(https://ssl.pstatic.net/static/weather/images/map2.gif) no-repeat 0 0;}
+.z_map .m3 {background:url(https://ssl.pstatic.net/static/weather/images/map3.gif) no-repeat 0 0;}
+.z_map .m4 {background:url(https://ssl.pstatic.net/static/weather/images/map4.gif) no-repeat 0 0;}
+.z_map .m5 {background:url(https://ssl.pstatic.net/static/weather/images/map5.gif) no-repeat 0 0;}
+.z_map .m6 {background:url(https://ssl.pstatic.net/static/weather/images/map6_v2.gif) no-repeat 0 0;}
+.z_map .m7 {background:url(https://ssl.pstatic.net/static/weather/images/map7.gif) no-repeat 0 0;}
+.z_map .m8 {background:url(https://ssl.pstatic.net/static/weather/images/map13.gif) no-repeat 0 0;}
+.z_map .m9 {background:url(https://ssl.pstatic.net/static/weather/images/map9.gif) no-repeat 0 0;}
+.z_map .m10 {background:url(https://ssl.pstatic.net/static/weather/images/map10.gif) no-repeat 0 0;}
+.z_map .m11 {background:url(https://ssl.pstatic.net/static/weather/images/map11.gif) no-repeat 0 0;}
+.z_map .m12 {background:url(https://ssl.pstatic.net/static/weather/images/map12.gif) no-repeat 0 0;}
+/*서울,경기*/
+.z_map .m1 .z1 {left:104px; top:90px;}/*서울*/
+.z_map .m1 .z2 {left:35px; top:108px;}/*인천*/
+.z_map .m1 .z3 {left:128px; top:153px;}/*수원*/
+.z_map .m1 .z4 {left:26px; top:38px;}/*강화*/
+.z_map .m1 .z5 {left:139px; top:23px;}/*동두천*/
+.z_map .m1 .z6 {left:201px; top:78px;}/*양평*/
+.z_map .m1 .z7 {left:193px; top:138px;}/*이천*/
+/*서해5도*/
+.z_map .m2 .z1 {left:100px; top:73px;}/*백령도*/
+/*영서*/
+.z_map .m3 .z1 {left:8px; top:32px;}/*철원*/
+.z_map .m3 .z2 {left:57px; top:81px;}/*춘천*/
+.z_map .m3 .z3 {left:127px; top:43px;}/*인제*/
+.z_map .m3 .z4 {left:113px; top:102px;}/*홍천*/
+.z_map .m3 .z5 {left:59px; top:149px;}/*원주*/
+.z_map .m3 .z6 {left:153px; top:151px;}/*영월*/
+/*영동*/
+.z_map .m4 .z1 {left:147px; top:19px;}/*속초*/
+.z_map .m4 .z2 {left:190px; top:75px;}/*강릉*/
+.z_map .m4 .z3 {left:74px; top:95px;}/*대관령*/
+.z_map .m4 .z4 {left:135px; top:141px;}/*태백*/
+/*충북*/
+.z_map .m5 .z1 {left:50px; top:106px;}/*청주*/
+.z_map .m5 .z2 {left:82px; top:45px;}/*충주*/
+.z_map .m5 .z3 {left:150px; top:35px;}/*제천*/
+.z_map .m5 .z4 {left:116px; top:97px;}/*보은*/
+.z_map .m5 .z5 {left:140px; top:151px;}/*추풍령*/
+/*충남*/
+.z_map .m6 .z1 {left:58px; top:17px;}/*서산*/
+.z_map .m6 .z2 {left:144px; top:16px;}/*아산*/
+.z_map .m6 .z3 {left:204px; top:95px;}/*대전*/
+.z_map .m6 .z4 {left:67px; top:104px;}/*보령*/
+.z_map .m6 .z5 {left:123px; top:125px;}/*부여*/
+.z_map .m6 .z6 {left:171px; top:147px;}/*금산*/
+.z_map .m6 .z7 {left:199px; top:36px;}/*세종*/
+
+/*경북*/
+.z_map .m7 .z1 {left:10px; top:33px;}/*문경*/
+.z_map .m7 .z2 {left:72px; top:22px;}/*영주*/
+.z_map .m7 .z3 {left:124px; top:21px;}/*봉화*/
+.z_map .m7 .z4 {left:179px; top:21px;}/*울진*/
+.z_map .m7 .z5 {left:73px; top:82px;}/*의성*/
+.z_map .m7 .z6 {left:129px; top:82px;}/*안동*/
+.z_map .m7 .z7 {left:187px; top:81px;}/*영덕*/
+.z_map .m7 .z8 {left:28px; top:137px;}/*구미*/
+.z_map .m7 .z9 {left:79px; top:137px;}/*대구*/
+.z_map .m7 .z10 {left:129px; top:154px;}/*영천*/
+.z_map .m7 .z11 {left:182px; top:138px;}/*포항*/
+/*경남*/
+.z_map .m8 .z1 {left:11px; top:20px;}/*거창*/
+.z_map .m8 .z2 {left:59px; top:20px;}/*합천*/
+.z_map .m8 .z3 {left:142px; top:42px;}/*밀양*/
+.z_map .m8 .z4 {left:195px; top:46px;}/*울산*/
+.z_map .m8 .z5 {left:9px; top:90px;}/*산청*/
+.z_map .m8 .z6 {left:58px; top:90px;}/*진주*/
+.z_map .m8 .z7 {left:107px; top:89px;}/*마산*/
+.z_map .m8 .z8 {left:181px; top:114px;}/*부산*/
+.z_map .m8 .z9 {left:21px; top:154px;}/*남해*/
+.z_map .m8 .z10 {left:75px; top:154px;}/*통영*/
+.z_map .m8 .z11 {left:128px; top:153px;}/*거제*/
+/*울릉,독도*/
+.z_map .m9 .z1 {left:74px; top:66px;}/*울릉도*/
+.z_map .m9 .z2 {left:192px; top:135px;}/*독도*/
+/*전북*/
+.z_map .m10 .z1 {left:51px; top:24px;}/*군산*/
+.z_map .m10 .z2 {left:127px; top:56px;}/*전주*/
+.z_map .m10 .z3 {left:23px; top:91px;}/*부안*/
+.z_map .m10 .z4 {left:195px; top:74px;}/*장수*/
+.z_map .m10 .z5 {left:70px; top:141px;}/*정읍*/
+.z_map .m10 .z6 {left:138px; top:129px;}/*임실*/
+.z_map .m10 .z7 {left:199px; top:142px;}/*남원*/
+/*전남*/
+.z_map .m11 .z1 {left:36px; top:20px;}/*무안*/
+.z_map .m11 .z2 {left:87px; top:19px;}/*광주*/
+.z_map .m11 .z3 {left:194px; top:16px;}/*순천*/
+.z_map .m11 .z4 {left:6px; top:72px;}/*목표*/
+.z_map .m11 .z5 {left:26px; top:133px;}/*해남*/
+.z_map .m11 .z6 {left:76px; top:150px;}/*완도*/
+.z_map .m11 .z7 {left:150px; top:95px;}/*고흥*/
+.z_map .m11 .z8 {left:200px; top:72px;}/*여수*/
+/*제주*/
+.z_map .m12 .z1 {left:111px; top:60px;}/*제주*/
+.z_map .m12 .z2 {left:39px; top:104px;}/*고산*/
+.z_map .m12 .z3 {left:112px; top:135px;}/*서귀포*/
+.z_map .m12 .z4 {left:175px; top:102px;}/*성산포*/
+/* 090804 */
+.left_map .txt {width:252px; padding-top:6px; margin-left:10px; font-size:11px; letter-spacing:-1px;}
+/* //090804 */
+.z_cnt {float:right; width:331px;}
+.z_cnt dt {height:20px; padding:8px 0 0 10px; background:#f2f2f2; color:#333; font-weight:bold;}
+.z_cnt dd {padding:0 10px; line-height:1.4;}
+.z_cnt dd p {padding:7px 0 5px 0; font-weight:bold;}
+/* 090804 */
+.tbl_weather {clear:both; float:left; width:593px; margin-top:3px; border:1px solid #d9d9d9; border-collapse:collapse;table-layout:fixed}
+.tbl_weather caption{position:static}
+/* //090804 */
+.tbl_weather th {letter-spacing:-1px;}
+.tbl_weather thead th {height:50px; border-right:1px solid #eaecee; border-bottom:1px solid #dcdde0; background:#fafafa; color:#333; text-align:center;}
+.tbl_weather thead th span {color:#767676; font-size:10px; font-family:tahoma; font-weight:normal; letter-spacing:0;}
+.tbl_weather tbody th {border-right:1px solid #eaecee; border-bottom:1px solid #dcdde0; font-size:11px; font-weight:normal; text-align:center;}
+.tbl_weather tbody td {padding:9px 0 10px 0; border-right:1px solid #eaecee; border-bottom:1px solid #dcdde0; vertical-align:top;}
+.tbl_weather tbody td .icon {float:left;}
+.tbl_weather tbody td .text {float:left; width:70px; margin-top:2px;}
+.tbl_weather tbody td .text li {font-size:11px; font-family:dotum; letter-spacing:-1px;}
+.tbl_weather tbody td .text li.nm {padding:0 2px 6px 0; color:#333; line-height:1.3;}
+.tbl_weather tbody td .text li .rain strong {letter-spacing:-1px;}
+.tbl_weather .line {border-right:1px solid #d9d9d9;}
+
+/* 도시별 오늘 날씨 */
+.tbl_today {width:313px; margin-top:0;}/* tbl_weather */
+.tbl_today thead th {height:30px;}
+.tbl_today thead th.area {font-size:11px; font-weight:normal;}
+.tbl_today th {letter-spacing:-1px;}
+.tbl_today tbody th {line-height:1.2;}
+.tbl_today tbody td .text {width:73px;}
+.tbl_today tbody td .text .nm {font-size:12px;}
+
+.today_map {float:right; width:270px;}
+.k_map {position:relative;width:268px; border:1px solid #ddd;}
+.k_map a:hover {text-decoration:none;}
+.k_map .tab {width:262px; height:30px; margin-left:6px;}
+.k_map .tab li {float:left; padding:5px 0 0 0;}
+
+.k_map .map {position:relative; width:268px; height:306px;background:url(https://ssl.pstatic.net/static/weather/images/map_sub.gif) no-repeat 0 0;}
+.k_map .z1 {left:60px; top:60px;}/*서울,경기*/
+.k_map .z2 {left:10px; top:67px;}/*서해5도*/
+.k_map .z3 {left:110px; top:41px;}/*영서*/
+.k_map .z4 {left:157px; top:53px;}/*영동*/
+.k_map .z5 {left:103px; top:110px;}/*충북*/
+.k_map .z6 {left:50px; top:120px;}/*충남*/
+.k_map .z7 {left:155px; top:116px;}/*경북*/
+.k_map .z8 {left:149px; top:190px;}/*경남*/
+.k_map .z9 {left:220px; top:44px;}/*울릉,독도*/
+.k_map .z10 {left:95px; top:167px;}/*전북*/
+.k_map .z11 {left:48px; top:197px;}/*전남*/
+.k_map .z12 {left:30px; top:255px;}/*제주도*/
+.k_map .date {position:absolute; right:12px; bottom:10px; font-size:11px; letter-spacing:-1px;}
+.k_map .date span {font-family:tahoma; letter-spacing:0;}
+
+.today_map .txt {position:absolute;top:348px;left:0;display:block;width:270px;font-size:11px; letter-spacing:-1px;white-space:nowrap}
+.today_map .btn {padding-top:33px;}
+
+#content h4{float:left;*float:none;clear:both;margin:20px 0 7px 2px;padding:0 10px;background:url(https://ssl.pstatic.net/static/n/local/206/weather/ico_arw02.gif) no-repeat 0 3px;font-size:12px;line-height:14px;color:#333;letter-spacing:-1px;zoom:1}
+#content h4.h_type_txt{margin:0;background:none;font-weight:bold;font-size:13px;color:#333;}
+#content h4 img {margin:-1px 5px 1px 2px; vertical-align:middle;}
+#content h4 span {color:#666; font-size:11px; font-weight:normal;}
+#content h4 span.txt {color:#333; font-size:12px; letter-spacing:0;}
+#content h4 span.txt2 {margin-left:6px; padding-left:6px; background:url(https://ssl.pstatic.net/static/weather/images/bar4.gif) no-repeat 0 0;}
+/* 090902 */
+#content h4.first { width:573px; margin-top:4px;}
+/* //090902 */
+#content .clear h4 {background-position:0 1px; *background-position:0 2px;}
+#content h4.new_end_tit{float:none;margin:0;padding:0;background:none;color:#2d2d2d;font-size:19px;line-height: normal}
+#content .news_view_air h4.new_end_tit{color:#333;font-size:15px;}
+#content .news_view_air h4.new_end_tit span{display:inline-block;margin:2px 0 0 0;padding:0 0 0 10px;font-size:12px;color:#888;vertical-align:top;letter-spacing:0}
+#content h4.h_search_word{float:none;margin:0;padding:0;background:none;font-size:12px;line-height: normal}
+#content h4.h_search_word span{color:#29a1ff;font-size:12px;font-weight:bold}
+
+.w_now {clear:both; width:593px; height:61px; background:url(https://ssl.pstatic.net/static/weather/images/bx_now_w.gif) no-repeat 0 0;}
+.w_now dt {float:left; width:148px; padding-top:14px; line-height:1.2; text-align:center;}
+.w_now dt strong {color:#333; font-size:14px;}
+.w_now .ico {float:left; padding:7px 0 0 10px; color:#333;}
+.w_now .ico img {vertical-align:middle;}
+.w_now .ico strong {margin-left:5px;}
+.w_now .tr {display:inline; float:right; padding-top:22px; margin-right:86px;}
+.w_now .tr .temp strong,
+.w_now .tr .rain strong {font-size:12px;}
+
+.w_now2{position:relative;z-index:1;margin-bottom:6px;*margin-bottom:25px;border-bottom:1px solid #f8f8f8}
+.w_now2 ul{border:1px solid #d9d9d9;zoom:1}
+.w_now2 ul:after{display:block;clear:both;content:''}
+.w_now2 li{float:left;width:296px;height:103px;padding:22px 0 0 10px}
+.w_now2 .ico_wt{display:block;float:left}
+.w_now2 .fl{float:left;position:relative;width:175px}
+.w_now2 .fl h5{padding:0 0 3px;font-size:12px;font-weight:bold;color:#f60;letter-spacing:-1px}
+.w_now2 .fl h5 span{font-family:Tahoma,sans-serif;letter-spacing:0}
+.w_now2 .fl em{display:inline-block;margin-bottom:4px;font-family:tahoma,sans-serif;font-size:24px;font-weight:bold;color:#333;letter-spacing:-1px}
+.w_now2 .fl em span{display:inline-block;overflow:hidden;width:16px;height:19px;margin-left:2px;background:url(https://ssl.pstatic.net/static/weather/images/bg_dgr.gif) 0 0 no-repeat;line-height:999px;vertical-align:0;*vertical-align:middle}
+.w_now2 .fl em strong{padding-left:7px;font-size:12px;font-family:'돋움',Dotum,Helvetica,sans-serif;font-weight:normal;vertical-align:1px;word-break: keep-all;}
+.w_now2 .fl p{font-size:11px;line-height:15px;color:#636563}
+.w_now2 .fl p .temp{color:#636563}
+.w_now2 .fl p .atm{}
+.w_now2 .fl p a{display:inline-block;margin:0 0 0 2px;text-decoration:none}
+.w_now2 .fl p a em{margin-left:3px;font-size:11px;font-weight:normal}
+.w_now2 .fl p a .atm_ico{display:inline-block;width:2px;height:2px;margin:0 4px 0 5px;background:url(https://ssl.pstatic.net/static/weather/images/dvs_dot.gif) no-repeat;vertical-align:middle}
+.w_now2 .fl .good{color:#4e89f6}
+.w_now2 .fl .normal{color:#3dc948}
+.w_now2 .fl .bitbad{color:#ff9804}
+.w_now2 .fl .bad{color:#ff670b}
+.w_now2 .fl .toobad{color:#ee090b}
+.w_now2 .fl p a .help{display:inline-block;overflow:hidden;width:12px;height:12px;margin:-1px 0 1px 4px;background:url(https://ssl.pstatic.net/static/weather/images/btn_help2.gif) no-repeat;text-decoration:none;text-indent:-1000px;vertical-align:middle}
+.w_now2 p{padding:0;line-height:18px;color:#333;letter-spacing:-1px}
+.w_now2 p .bar2{padding:0 3px 0 2px;color:#ddd}
+.w_now2 p strong{padding:0 1px 0 3px;font-family:tahoma,sans-serif;font-size:11px;letter-spacing:0}
+.w_now2 li.after_h{width:140px;padding:22px 0 0 1px;border-left:1px solid #eaecee}
+.w_now2 li.after_h h6{padding:0 0 10px;font-size:12px;font-weight:bold;color:#333;letter-spacing:-1px;text-align:center}
+.w_now2 li.after_h h6 em{font-family:tahoma,sans-serif;letter-spacing:0}
+.w_now2 li.after_h .inner{position: relative;margin:5px 0 0 11px;line-height:46px}
+.w_now2 li.after_h .inner img{position:absolute;top: 0;left: 0;vertical-align:middle}
+.w_now2 li.after_h .inner p{display:table;height:46px;margin-left:69px;line-height:16px;vertical-align:middle;zoom:1;word-break: keep-all;}
+.w_now2 li.after_h .inner p .txt{display: table-cell;vertical-align: middle;}
+.w_now2 .wt_world {padding:22px 0 0 24px; width:282px;}
+.w_now2 .wt_world .ico_wt {margin-right:20px;}
+.w_now2 .wt_world .fl {overflow:hidden;float:none;width:auto;}
+.w_now2 .wt_world .fl p em {margin-left:3px;font-size:11px;font-weight:normal}
+
+.ly_atm{position:absolute;top:84px;left:0;min-width:235px;padding:12px 14px 10px;border:1px solid #999;background-color:#fff;line-height:18px}
+.ly_atm dt{color:#666}
+.ly_atm dt span{color:#999}
+.ly_atm dt span.b_data{color:#bababa}
+.ly_atm dt strong{margin-left:6px}
+.ly_atm dd{margin-bottom:2px;padding-left:10px;background:url(https://ssl.pstatic.net/static/weather/images/depth.gif) no-repeat 0 3px;color:#666}
+.ly_atm .chk_place{margin-top:5px;padding-top:8px;border-top:1px solid #ececec;font-size:11px;line-height:17px;color:#999}
+.ly_atm .chk_place .bar{margin:0 6px;color:#ddd}
+.ly_atm .chk_place a{color:#666;text-decoration:underline}
+.ly_atm .close{overflow:hidden;position:absolute;top:0;right:0;width:27px;height:27px;cursor:pointer}
+.ly_atm .close span{display:block;width:11px;height:11px;margin:8px 0 0 8px;background:url(https://ssl.pstatic.net/static/weather/images/ico_etc.png) no-repeat -15px 0;text-indent:-100px}
+
+.tbl_today2 {margin-top:0;}/* tbl_weather */
+.tbl_today2 thead th {height:29px;}
+.tbl_today2 tbody td .text {width:80px;}
+.tbl_today2 tbody td .text .nm {font-size:12px;}
+
+.tbl_week {margin-top:10px;}/* tbl_weather */
+.tbl_week thead th {height:38px;}
+.tbl_week tbody td {padding:9px 0; text-align:center;}
+.tbl_week tbody td .icon,
+.tbl_week tbody td .text {float:none; width:112px;}
+.tbl_week tbody td .text .nm {font-size:12px;}
+.tbl_week tbody td .text li img {margin:0 2px 0 1px; vertical-align:middle;}
+
+.c_tit {position:relative; clear:both; float:left; width:593px; margin:25px 0 7px 0;}
+.c_tit h4 {float:none; margin:0 0 0 2px !important;}
+.c_tit span {position:absolute; right:0; bottom:0;}
+.c_tit2{overflow:hidden;padding-bottom:6px;zoom:1}
+.c_tit2 h4{float:left!important;width:auto!important;margin-bottom:0!important;margin-left:0!important}
+.c_tit2 .date2{float:right;padding:4px 1px 0 0;font-size:11px;letter-spacing:-1px;color:#777}
+.c_tit2 .date2 em{font-family:tahoma,sans-serif;letter-spacing:0}
+.c_flash {margin-bottom:25px;}
+
+.zone_select2 {position:relative; z-index:99; width:593px; height:47px; margin:0; margin-bottom:25px; background:url(https://ssl.pstatic.net/static/weather/images/bg_zone_sel2.gif) no-repeat 0 0;}
+.zone_select2 .btn_save {position:absolute; right:14px; top:13px;}
+.zone_select2 .btn_inquire {margin-left:4px; top:13px;}
+.zone_select2 .z_select {padding:13px 0 0 14px;}
+.zone_select2 .z_select .st {float:left; padding:5px 5px 0 0; color:#333; font-weight:bold; letter-spacing:-1px;}
+.zone_select2 .z_select select, .zone_select2 .z_select img{vertical-align:middle}
+.zone_select2 .z_select2 {padding:13px 0 0 14px; *padding-top:14px;}
+.zone_select2 .z_select2 .blind{position:absolute}
+
+.c_env {clear:both; width:593px; height:300px; margin-top:12px; background:url(https://ssl.pstatic.net/static/weather/images/bx_environs.gif) no-repeat 0 0;}
+.c_env .left_map {display:inline; margin-left:4px;}
+.c_env .st {height:20px;padding:16px 0 0 11px; color:#333; font-size:12px; font-weight:bold; letter-spacing:-1px;}
+.c_env .txt {padding-top:10px;}
+
+.info_index {display:inline; float:right; width:296px; margin-right:16px}
+.info_index .hd{overflow:hidden;height:20px;padding-top:16px;border-bottom:1px solid #ebebeb;text-align:right}
+.info_index .tit{float:left;color:#333;letter-spacing:-1px;font-weight:bold}
+.info_index .update{color:#666;line-height:12px;font-size:11px}
+.info_index .update .in{letter-spacing:-1px}
+.info_index ul{padding-top:27px}
+.info_index li {float:left; width:145px; height:58px; padding-right:3px;}
+.info_index dt {float:left; padding:0 6px 8px 0;}
+.info_index dd {margin-top:-1px;}
+.info_index .st {padding:0; color:#666; letter-spacing:-1px;}
+.info_index .st span {color:#ff6600; font-family:tahoma;}
+.info_index .txt {padding:4px 5px 0 0; color:#767676; font-size:11px; letter-spacing:-1px; line-height:1.3;}
+
+/* 동네별 날씨 */
+.v_flash {}
+
+/* 레저 날씨 */
+.way_index {clear:both; width:591px; border:1px solid #ddd; text-align:center;}/* 090827 */
+
+.week_way {overflow:hidden; float:left; width:323px;padding-left:1px;*padding:0;}/* 100120 */
+.tbl_way {clear:both; width:323px; border:1px solid #d9d9d9; border-collapse:collapse;}
+.tbl_way th {border-right:1px solid #eaecee; border-bottom:1px solid #dcdde0; background:#fafafa; color:#333; letter-spacing:-1px; text-align:center;}
+.tbl_way th span {color:#767676; font-size:10px; font-family:tahoma; font-weight:normal; letter-spacing:0;}
+.tbl_way th.time {background:none; font-size:11px; font-weight:normal; text-align:center; color:#666;}
+.tbl_way td {height:36px; border-bottom:1px solid #dcdde0; font-size:11px; font-family:dotum;}
+.tbl_way td img {margin:0 0 0 7px; vertical-align:middle;}
+.tbl_way tr.line .time,
+.tbl_way tr.line td {border-bottom:1px solid #edeff1;}
+
+.tbl_way2 {width:323px; margin-top:12px;}/* tbl_weather */
+.tbl_way2 thead th {height:40px;}
+.tbl_way2 tbody td {padding:4px 0 8px 0; text-align:center;}
+.tbl_way2 tbody td .icon,
+.tbl_way2 tbody td .text {float:none; width:auto; margin-top:5px;}
+.tbl_way2 tbody td .text li.nm {padding:0 3px;}
+
+.map_way {overflow:hidden; float:right; width:260px;}/* 090925 */
+.bx_way {float:left; width:257px; height:405px; padding:5px 0 0 3px; background:url(https://ssl.pstatic.net/static/weather/images/bx_motorway.gif) no-repeat 0 0;}
+
+/* 바다 날씨 */
+/* 090902 */
+.sea_view { width:593px; clear:both; zoom:1;}
+.sea_view:after {clear:both; display:block; content:"";}
+/* //090902 */
+.sea_map {float:left; position:relative;width:252px;}
+.s_map {overflow:hidden; float:left; width:250px; border:1px solid #d8d8d8;}
+.s_map .tab {width:250px; height:30px;}
+.s_map .tab li {float:left; padding:5px 0 0 9px;}
+.s_map .map {position:relative; z-index:10; width:250px; height:274px;}
+.s_map .zone {width:37px; height:34px;}
+.s_map .zone img {display:block; margin:0 auto;}
+.s_map .m1 {background:url(https://ssl.pstatic.net/static/weather/images/map_sea1.gif) no-repeat 0 0;}
+.s_map .m2 {background:url(https://ssl.pstatic.net/static/weather/images/map_sea2.gif) no-repeat 0 0;}
+.s_map .m3 {background:url(https://ssl.pstatic.net/static/weather/images/map_sea3.gif) no-repeat 0 0;}
+.s_map .m4 {background:url(https://ssl.pstatic.net/static/weather/images/map_sea4.gif) no-repeat 0 0;}
+/*동해*/
+.s_map .m1 .z1 {left:52px; top:47px;}/*강원북부*/
+.s_map .m1 .z2 {left:105px; top:67px;}/*강원중부*/
+.s_map .m1 .z3 {left:99px; top:135px;}/*강원남부*/
+.s_map .m1 .z4 {left:203px; top:43px;}/*대화퇴*/
+.s_map .m1 .z5 {left:127px; top:201px;}/*울산앞바다*/
+.s_map .m1 .z6 {left:194px; top:169px;}/*경북북부*/
+.s_map .m1 .z7 {left:72px; top:233px;}/*경북남부*/
+/*서해*/
+.s_map .m2 .z1 {left:61px; top:34px;}/*경기북부*/
+.s_map .m2 .z2 {left:55px; top:88px;}/*충남북부*/
+.s_map .m2 .z3 {left:60px; top:142px;}/*전북북부*/
+.s_map .m2 .z4 {left:52px; top:190px;}/*전남북부서해*/
+.s_map .m2 .z5 {left:61px; top:234px;}/*전남남부서해*/
+/*남해*/
+.s_map .m3 .z1 {left:174px; top:91px;}/*부산앞바다*/
+.s_map .m3 .z2 {left:126px; top:103px;}/*경남중부*/
+.s_map .m3 .z3 {left:146px; top:180px;}/*경남서부*/
+.s_map .m3 .z4 {left:32px; top:159px;}/*전남서부남해*/
+.s_map .m3 .z5 {left:95px; top:157px;}/*전남동부남해*/
+.s_map .m3 .z6 {left:146px; top:238px;}/*큐슈남해*/
+.s_map .m3 .z7 {left:206px; top:222px;}/*큐슈서해*/
+/*제주*/
+.s_map .m4 .z1 {left:122px; top:128px;}/*제주북부*/
+.s_map .m4 .z2 {left:178px; top:168px;}/*제주동부*/
+.s_map .m4 .z3 {left:123px; top:211px;}/*제주남부*/
+.s_map .m4 .z4 {left:42px; top:175px;}/*제주서부*/
+.s_map .m4 .z5 {left:47px; top:235px;}/*동중국해*/
+
+.sea_map .txt {overflow:hidden; position:absolute;top:316px;left:0;clear:both; font-size:11px; letter-spacing:-1px;}
+
+/* 090902 */
+.tbl_sea {clear:none; float:right; width:332px; margin-top:1px; *margin-top:0;}
+.tbl_sea th,
+.tbl_sea td {font-size:11px; font-family:dotum;}
+.tbl_sea thead th {height:40px;}
+.tbl_sea thead th span {color:#767676;}
+.tbl_sea tbody th {height:65px; padding:0; line-height:1.2;}
+.tbl_sea tbody th span {color:#767676; font-size:10px; font-family:tahoma; letter-spacing:0;}
+.tbl_sea tbody th,
+.tbl_sea tbody td {border-bottom:1px solid #eaecee; vertical-align:middle;}
+.tbl_sea tbody td {height:65px; *height:0; padding:0; *padding:5px 0 4px 0; text-align:center;}
+/* //090902 */
+.tbl_sea tbody td.icon {text-align:left;}
+.tbl_sea tbody td.icon td,
+.tbl_sea tbody tr.bline td.icon td {border:none;}
+.tbl_sea tbody td.icon .ico_txt {padding-right:3px; color:#333; letter-spacing:-1px; line-height:1.3; text-align:left;}
+.tbl_sea tbody td.num {color:#767676; font-family:tahoma;}
+.tbl_sea tbody tr.bline th,
+.tbl_sea tbody tr.bline td {border-bottom:1px solid #d9d9d9;}
+
+/* 주간예보 */
+.txt_weather {clear:both; float:left; width:581px; padding-left:12px; line-height:1.4;}
+.tbl_wk thead th {font-weight:normal; letter-spacing:0;}/* tbl_type1 */
+.tbl_wk tbody td {height:48px; padding:0; text-align:center;}
+.tbl_fore thead th {font-weight:normal; letter-spacing:0;}/* tbl_type1 */
+
+/* 지난 날씨 달력 */
+h4.st_cal {clear:both; margin:18px 0 7px 2px !important; padding-left:10px; background:url(https://ssl.pstatic.net/static/n/local/206/weather/ico_arw02.gif) no-repeat 0 3px; *background-position:0 2px; color:#333; font-size:14px !important; letter-spacing:-1px; text-align:left;}
+h4.st_cal span {color:#333 !important; font-size:14px !important; font-weight:bold !important;}
+h4.st_cal strong {color:#339900; letter-spacing:0;}
+
+.tbl_calendar {clear:both; width:593px; border:1px solid #d9d9d9; border-collapse:collapse;}
+.tbl_calendar th {height:30px; border-right:1px solid #e8e8e8; border-bottom:1px solid #dcdde0; background:#f6f6f6; color:#333; text-align:center;}
+.tbl_calendar td {height:70px; border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; text-align:center;}
+.tbl_calendar .line {border-right:1px solid #d9d9d9;}
+.tbl_calendar tr.line th,
+.tbl_calendar tr.line td {border-bottom:1px solid #d9d9d9;}
+.tbl_calendar td.no {background:#fafafa;}
+.tbl_calendar td .icon {margin-top:2px;}
+.tbl_calendar td .text {margin-top:4px;}
+.tbl_calendar td .text img {margin:0 2px 0 1px; vertical-align:middle;}
+
+.st_total {overflow:hidden; clear:both; width:593px; margin:17px 0 0 0; padding-bottom:6px;}
+.st_total p {color:#333; font-weight:bold; letter-spacing:-1px;}
+.st_total .txt {float:left; padding:3px 0 0 2px;}
+.st_total .tep {float:right; padding-right:2px;}
+.st_total .tep span {font-weight:normal;}
+.st_total .tep strong {font-size:13px;}
+
+.tbl_total th {border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; background:#fafafa;}
+.tbl_total td {height:56px;}
+.tbl_total td .icon {margin:0 0 5px 0;}
+.tbl_total td .text {margin-top:0;}
+.tbl_total td strong {font-size:14px;}
+
+.btn_print {clear:both; width:593px; margin:15px 0 0 0; border-top:1px solid #ddd; text-align:right;}
+.btn_print img {margin:9px 10px 0 0;}
+
+/* 프린트 팝업 */
+#pop_wrap {width:637px;}
+#pop_wrap #header {position:relative; height:40px;}
+#pop_wrap #header h1 {}
+#pop_wrap #header h1 img {}
+#pop_wrap #header span {position:absolute; right:12px; top:9px;}
+#pop_wrap #content {clear:both; padding:0 22px; text-align:center;}
+#pop_wrap .pop_btn {clear:both; width:593px; margin:15px auto 0 auto; padding-top:10px; border-top:1px solid #ddd;}
+
+/* 날씨뉴스 */
+.news_main {overflow:hidden; margin-top:-5px; padding:16px 16px 0 16px; _padding-bottom:16px; border:1px solid #ddd;}
+.news_main .new,
+.news_main .new2 {overflow:hidden; width:559px; margin-bottom:16px;}
+.news_main .new dt.tit {margin-left:169px; font-size:16px;}
+.news_main .new dd.thum {display:inline; float:left; margin:-22px 16px 0 0; _margin:-24px 13px 0 0;}
+.news_main .new dd.thum img {border:1px solid #ddd;}
+.news_main .new dd.btn_vod {padding-top:7px;}
+.news_main dt {padding-bottom:6px; color:#000063; font-weight:bold; letter-spacing:-1px;}
+.news_main dt a,
+.news_main dt a:hover,
+.news_main dt a:visited {color:#000063;}
+.news_main dd {line-height:1.4;}
+.news_main dd a,
+.news_main dd a:visited {color:#4a4a4a;}
+.news_main .source {margin-right:3px; color:#ad6161; font-size:11px; letter-spacing:-1px;}
+.news_main .date {padding-left:7px; background:url(https://ssl.pstatic.net/static/weather/images/bar5.gif) no-repeat 0 2px; color:#767676; font-size:11px; font-family:tahoma;}
+.news_main .new2 dt.tit {font-size:14px;}
+.news_main .new_line {clear:both; _float:left; width:559px; padding-top:16px; border-top:1px solid #f3f3f4; font-size:0; line-height:0;}
+
+.list_news {overflow:hidden; clear:both; width:593px; padding:17px 0 12px 0; border-top:1px solid #f4f4f4;}
+.list_news.fst {margin-top:-3px; _margin-top:-16px; border-top:none;}
+.list_news li {padding:0 0 0 16px;line-height:25px;background:url(https://ssl.pstatic.net/static/weather/images/bu_dot4.gif) no-repeat 10px 12px}
+.list_news li a {display:inline;margin-right:9px;color:#000063;font-size:14px;letter-spacing:-1px;vertical-align:middle}
+.list_news li a:visited, .list_news li a:hover {color:#000063;}
+.list_news li span{display:inline-block;vertical-align:middle}
+.list_news .icon {margin:-1px 0 0 2px;vertical-align:middle}
+.list_news .icon img {display:inline-block;margin:0 1px 0 1px; vertical-align:middle;}
+.list_news .source {margin-right:1px; color:#ad6161; font-size:11px; letter-spacing:-1px;}
+.list_news .date {padding-left:6px; background:url(https://ssl.pstatic.net/static/weather/images/bar5.gif) no-repeat 0 2px; color:#767676; font-size:11px; font-family:tahoma;}
+
+.news_view {width:580px; margin:22px 3px 0 10px;}
+.news_view_air{margin-bottom:41px;}
+.news_view dt {color:#2d2c2d; font-size:19px; font-weight:bold; letter-spacing:-1px;}
+.news_view .date {padding-top:10px; color:#767676; font-size:11px;}
+.news_view .cnt{margin-top:15px; padding-left:2px;color:#888;}
+.news_view .cnt .vod_area{margin-bottom:19px;padding-left:14px}
+.news_view .cnt .data { color:#2d2c2d; font-family:gulim; font-size:16px; line-height:1.4;}
+.news_view_air .cnt .data p{font-size:12px;color:#676767;font-family:dotum,sans-serif;}
+.news_view .cnt .data a:hover {color:#339900;}
+.news_other {clear:both; width:593px; margin-top:11px; padding:15px 0 3px 0; border-top:1px solid #c5cbd1; border-bottom:1px solid #eaeaea;}
+.news_other ul {margin-left:15px;}
+.news_other ul li {height:23px; padding-left:7px; background:url(https://ssl.pstatic.net/static/weather/images/bu_dot4.gif) no-repeat 0 5px; font-family:gulim;}
+.news_other ul li a,
+.news_other ul li a:hover,
+.news_other ul li a:visited {color:#003366;}
+.news_other ul li.on a,
+.news_other ul li.on a:visited {font-weight:bold; text-decoration:none;}
+.news_other ul li .source {margin:0 3px 0 1px; color:#767676; font-size:11px; font-family:dotum; letter-spacing:-1px;}
+.news_other ul li .date {padding-left:7px; background:url(https://ssl.pstatic.net/static/weather/images/bar5.gif) no-repeat 0 2px; color:#767676; font-size:11px; font-family:tahoma;}
+
+/* 태풍정보 */
+.tp_tit{clear:both;width:593px;padding:6px 0}
+.tp_tit:after{display:block;clear:both;content:''}
+.tp_tit h4{display:inline;float:left !important;clear:none !important;margin:2px 10px 0 2px !important}
+.tp_tit .tp_sel{float:left;margin-top:-1px}
+.tp_tit .tp_sel select{height:18px; margin-top:2px;}
+
+.typhoon_map {overflow:hidden; clear:both; width:591px; border:1px solid #d9d9d9; background:#fafafa;}
+.tp_name {overflow:hidden; width:591px; margin:15px 0 8px 0;}
+.tp_name h5 {float:left; padding-left:10px;}
+.tp_name span {float:right; padding-right:10px;}
+.tp_name h5, .tp_name span {color:#cc0000; font-size:14px; letter-spacing:-1px;}
+.tp_flash {clear:both; padding:0 6px;}
+.tp_img {padding:8px 0; text-align:center;}
+
+.tbl_typ {clear:both; width:593px; margin-top:10px; border:1px solid #d9d9d9; border-collapse:collapse;}
+.tbl_typ thead th {height:28px; border-right:1px solid #d9d9d9; border-bottom:1px solid #dcdde0; background:#f4f4f4; color:#333; text-align:center;}
+.tbl_typ thead th.th {border-bottom:1px solid #eaecee; background:#fafafa;}
+.tbl_typ tbody th {padding-left:10px; border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; color:#333; font-weight:normal; text-align:left;}
+.tbl_typ tbody th.th {border-right:1px solid #d9d9d9; padding:8px 10px; background:#fafafa; font-weight:bold; text-align:center;}
+.tbl_typ tbody td {padding:8px 10px; border-right:1px solid #eaecee; border-bottom:1px solid #eaecee; line-height:1.4; text-align:left;}
+
+/* 위성사진 */
+.sate_bx {overflow:hidden; clear:both; float:left; border:2px solid #d9d9d9;}
+.sate_bx .img_sate {float:left; border-right:2px solid #d9d9d9;}
+.sate_bx .time_sel {float:right; width:79px;}
+.sate_bx .time_sel dt {height:23px; padding-top:12px; background:#e6e6e6; color:#333; font-weight:bold; text-align:center;}
+.sate_bx .time_sel .date {height:20px; padding-top:9px; border-bottom:1px solid #efefef; background:#f9f9f9; font-weight:bold; letter-spacing:-1px; text-align:center;}
+.sate_bx .time_sel .time {width:79px;}
+.sate_bx .time_sel .time li {padding:7px 0 6px 26px; border-bottom:1px solid #efefef; background:url(https://ssl.pstatic.net/static/weather/images/bu_dot1.gif) no-repeat 14px center;}
+.sate_bx .time_sel .time li.on {background:#fafafa url(https://ssl.pstatic.net/static/weather/images/bu_dot1.gif) no-repeat 14px center; font-weight:bold;}
+
+/* 생활지수 */
+.area_index {overflow:hidden; float:left; clear:both; width:591px; border:1px solid #ddd;}
+.area_index .info_index {float:left; width:auto; margin:18px 0 -5px 23px;}
+.area_index .info_index ul{padding-top:0}
+.area_index .info_index li {width:180px; padding-right:9px;}
+
+/* 일출일몰 계산기 */
+.sun_out {overflow:hidden; width:593px; border-top:2px solid #ddd; border-bottom:1px solid #ddd; background:#fafafa;}
+.sun_out .st {width:563px; margin:17px 0 0 15px; line-height:1.4;}
+.sun_out .st img {margin:0 1px 2px 0; vertical-align:middle;}
+.sun_out .st strong {color:#333; letter-spacing:-1px;}
+.sun_out .sel {margin:7px 0 17px 37px;}
+.sun_out .line {padding-top:15px; background:url(https://ssl.pstatic.net/static/weather/images/bg_line1.gif) repeat-x 0 0;}
+.sun_out .blind{position:absolute}
+.btn_sun {padding-top:10px; text-align:center;}
+.sun_result {overflow:hidden; width:593px; height:97px; margin-top:30px; background:url(https://ssl.pstatic.net/static/weather/images/bx_sun_result.gif) no-repeat 0 0;}
+.sun_result p {padding:16px 0 0 21px; color:#333;}
+.sun_result p strong {color:#003366;}
+.sun_result ul {margin:15px 0 0 21px;}
+.sun_result ul li {height:21px; color:#333;}
+.sun_result ul li strong {color:#ff6600;}
+
+/* 세계날씨 */
+.world_search {overflow:hidden; width:593px; height:93px; background:url(https://ssl.pstatic.net/static/weather/images/bx_world_search.gif) no-repeat 0 0;}
+.world_search .c_sel {margin:16px 0 0 18px;}
+.world_search strong {color:#333; letter-spacing:-1px;-webkit-text-size-adjust:none}
+.world_search select,
+.world_search input,
+.world_search img {vertical-align:middle;}
+.world_search .c_ipt {margin:21px 0 0 18px;}
+.world_search .c_ipt input {height:14px; padding:3px 0 0 3px; border:1px solid #ddd;}
+.world_search .c_ipt span {letter-spacing:-1px;}
+.world_search .blind{position:absolute}
+
+.wt_world_sc{float:left;clear:both;width:593px;padding-bottom:10px}
+.wt_world_sc h4{float:none !important}
+.wt_world_sc .w_tit{overflow:hidden;position:relative}
+.wt_world_sc .w_tit span{position:absolute;top:20px;right:0;color:#999;letter-spacing:-1px}
+
+.world_today{border-top:1px solid #c6c6c6}
+.world_today li{padding:24px 12px;border-bottom:1px solid #f2f2f2}
+.world_today li h5 a{display:inline-block;text-decoration:none}
+.world_today li h5 strong{font-size:15px;color:#333}
+.world_today li h5 span{margin-left:8px;font-size:12px;font-weight:normal;color:#999}
+.world_today li ul{overflow:hidden;margin-top:-15px;border:none}
+.world_today li li{float:left;width:56px;margin-left:3px;padding:0;border:none;text-align:center}
+.world_today li li img,
+.world_today li li strong,
+.world_today li li span{display:block;margin:0 auto}
+.world_today li li img{margin:5px auto 4px;vertical-align:top}
+.world_today li li strong{color:#333}
+.world_today li li strong.sun{color:#f33}
+.world_today li li span{font-size:16px}
+.world_today li li em{font-family:Tahoma,Geneva,sans-serif}
+.world_today li li .min{color:#999}
+.world_today li li .max{color:#333}
+.world_today li li.fst{width:272px;margin-left:0;padding-top:28px;font-size:12px;text-align:left}
+.world_today li li.fst a{display:block;overflow:hidden;text-decoration:none}
+.world_today li li.fst img{float:left;margin-right:20px;vertical-align:top}
+.world_today li li.fst .fl{margin-top:7px}
+.world_today li li.fst .fl h6{font-size:12px;color:#f60}
+.world_today li li.fst .fl span{margin:3px 0 2px;font-size:12px}
+.world_today li li.fst .fl span strong{display:inline-block;margin-right:7px;font-family:tahoma,sans-serif;font-size:24px;font-weight:bold;color:#333;letter-spacing:-1px}
+.world_today li li.fst .fl span strong span{display:inline-block;overflow:hidden;width:16px;height:19px;margin:0 0 0 2px;background:url(https://ssl.pstatic.net/static/weather/images/bg_dgr.gif) 0 0 no-repeat;line-height:999px;vertical-align:0;*vertical-align:middle}
+.world_today li li.fst .fl p{font-size:11px;color:#636563}
+
+/* 140819 세계날씨 */
+.wt_world_sc{}
+.wt_world_sc h4{overflow:hidden;float:none !important;clear:both;width:100%}
+.wt_world_sc h4 strong{color:#29a1ff}
+.wt_world_sc .tbl_today3{float:none !important;margin-bottom:0}
+.wt_world_sc .tbl_today3 thead th{border-right-color:#dcdde0}
+.wt_world_sc .tbl_today3 thead th:first-child{border-right-color:#dcdde0}
+.wt_world_sc .tbl_today3 .sun{color:#f33}
+.wt_world_sc .tbl_today3 .sun span{color:#f33}
+.wt_world_sc .tbl_today3 tbody td{border-right-color:#f2f2f2}
+.wt_world_sc .tbl_today3 .wk_inr{color:#999;text-align:center}
+.wt_world_sc .tbl_today3 .wk_inr dl{margin:8px auto 0;font-size:16px;font-weight:bold}
+.wt_world_sc .tbl_today3 .wk_inr dt{margin-bottom:12px;font-size:12px;font-weight:normal}
+.wt_world_sc .tbl_today3 .wk_inr dd{font-family:Tahoma,Geneva,sans-serif;line-height:20px}
+.wt_world_sc .tbl_today3 .wk_inr dd.max{color:#333}
+.wt_world_sc .tbl_today3 .line{border-right-color:#d9d9d9}
+.wt_world_sc .cp_select{position: absolute;bottom:5px;right:35px;}
+.wt_world_sc .cp_btn{position: absolute;bottom:5px;right:0;width:30px;height:18px;border:1px solid #aaa;border-radius:3px;background-color:#fff;text-decoration:none;line-height:21px;color:#000;text-align:center;}
+
+.tbl_time{border-collapse:collapse;border:1px solid #dedede}
+.tbl_time caption{visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+.tbl_time th,.tbl_time td{width:43px;text-align:center}
+.tbl_time th{height:29px;font-weight:normal;color:#999}
+.tbl_time th.line{border-right:1px solid #dedede}
+.tbl_time .date th{*width:auto;border:1px solid #dedede;background-color:#fafafa;font-weight:bold;color:#333}
+.tbl_time .date th span{height:29px;font-family:Tahoma,Geneva,sans-serif;font-size:11px;color:#767676}
+.tbl_time td{border:1px solid;border-color:#dcdde0 #f2f2f2;color:#999}
+.tbl_time td:first-child{border-left-color:#dedede}
+.tbl_time td:last-child{border-right-color:#dedede}
+.tbl_time td img,.tbl_time td span{display:block;margin:0 auto;text-align:center}
+.tbl_time td span{font-size:11px}
+.tbl_time td span em{font-family:Tahoma,Geneva,sans-serif}
+.tbl_time td .wd{display:inline-block;overflow:hidden;width:16px;height:16px;margin:0 auto 6px;background:url(https://ssl.pstatic.net/static/weather/images/sp_wticon.gif) no-repeat;line-height:99999px}
+.tbl_time td .wd_n{background-position:0 0}				/* 북풍 */
+.tbl_time td .wd_nne{background-position:-20px 0}		/* 북북동풍 */
+.tbl_time td .wd_ne{background-position:-40px 0}		/* 북동풍 */
+.tbl_time td .wd_ene{background-position:-60px 0}		/* 동북동풍 */
+.tbl_time td .wd_e{background-position:0 -20px}			/* 동풍 */
+.tbl_time td .wd_ese{background-position:-20px -20px}	/* 동남동풍 */
+.tbl_time td .wd_se{background-position:-40px -20px}	/* 남동풍 */
+.tbl_time td .wd_sse{background-position:-60px -20px}	/* 남남동풍 */
+.tbl_time td .wd_s{background-position:0 -40px}			/* 남풍 */
+.tbl_time td .wd_ssw{background-position:-20px -40px}	/* 남남서풍 */
+.tbl_time td .wd_sw{background-position:-40px -40px}	/* 남서풍 */
+.tbl_time td .wd_wsw{background-position:-60px -40px}	/* 서남서풍 */
+.tbl_time td .wd_w{background-position:0 -60px}			/* 서풍 */
+.tbl_time td .wd_wnw{background-position:-20px -60px}	/* 서북서풍 */
+.tbl_time td .wd_nw{background-position:-40px -60px}	/* 북서풍 */
+.tbl_time td .wd_nnw{background-position:-60px -60px}	/* 북북서풍 */
+.tbl_time td .rain{overflow:hidden;position:relative;width:16px;height:20px;margin:0 auto 4px}
+.tbl_time td .rain span{display:inline-block;position:absolute;width:16px;height:20px;background:url(https://ssl.pstatic.net/static/weather/images/sp_rainfall.gif) no-repeat}
+.tbl_time td .rain .r_bg{top:0;left:0;background-position:left top}
+.tbl_time td .rain .r_gp{right:0;bottom:0;background-position:right bottom}
+.tbl_time .temp td{height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma,Geneva,sans-serif;color:#333}
+.tbl_time .temp .min{color:#29a1ff}
+.tbl_time .temp .max{color:#f33}
+.tbl_time .wth1 td{padding:17px 0}
+.tbl_time .wth1 td span{margin-top:4px}
+.tbl_time .wth1 td .point{color:#29a1ff}
+.tbl_time .wth2 td{padding:11px 0 12px}
+.tbl_time .wth3 td{padding:10px 0 11px}
+
+.e_word{margin-top:18px;font-size:11px;line-height:16px;color:#999}
+
+.bx_country {overflow:hidden; float:left; width:593px; margin-top:15px; padding-top:13px; background:url(https://ssl.pstatic.net/static/weather/images/bx_wd_top.gif) no-repeat 0 0;}
+.bx_country_in {width:593px; padding-bottom:6px; background:url(https://ssl.pstatic.net/static/weather/images/bx_wd_bttm.gif) no-repeat 0 bottom;}
+.bx_country_in p {width:577px; height:22px; margin-left:7px; border-bottom:1px solid #ededed; letter-spacing:-1px;}
+.bx_country_in p strong {margin-left:7px; color:#333;}
+.bx_country.mt {margin-top:20px;}
+
+.world_city {overflow-y:auto; width:579px; margin:10px 0 -5px 7px; text-align:left}
+.world_city.w_scroll {
+    height:105px;
+    _height:104px;
+    margin-bottom:0;
+    scrollbar-3dlight-color:#fff;
+    scrollbar-highlight-color:#d7d7d7;
+    scrollbar-shadow-color:#d7d7d7;
+    scrollbar-darkshadow-color:#fff;
+    scrollbar-arrow-color:#909090;
+    scrollbar-face-color:#fff;
+    scrollbar-track-color:#fff;
+}
+.world_city .city_list {_display:inline; float:left; width:552px; margin-left:10px;}
+*:first-child+html .world_city .city_list {padding-bottom:9px;}
+.world_city .city_list li {float:left; width:130px; margin-bottom:8px; padding-left:8px; background:url(https://ssl.pstatic.net/static/weather/images/bu_dot1.gif) no-repeat 0 4px; line-height:13px; _line-height:14px}
+*:first-child+html .world_city .city_list li {margin-bottom:9px;}
+.world_city .city_list li.on a {font-weight:bold; text-decoration:underline;}
+
+.tbl_wd_week {margin-top:0;}/* tbl_weather */
+.tbl_wd_week thead th {height:29px; letter-spacing:0;}
+.tbl_wd_week tbody td {text-align:center;}
+.tbl_wd_week tbody td .icon {float:none;}
+.tbl_wd_week tbody td .text {float:none; width:115px; margin:0 auto;}
+.tbl_wd_week tbody td .text li img {margin:0 2px 0 1px; vertical-align:middle;}
+
+.txt_wd {clear:both; width:593px; padding-top:10px; font-size:11px; line-height:1.4;}
+
+.wd_search_not{overflow:hidden;clear:both;height:120px;margin-top:20px;padding:20px 40px 0 156px;border-top:1px solid #c6c6c6;border-bottom:1px solid #f2f2f2;background:url(https://ssl.pstatic.net/static/weather/images/srch_none.gif) no-repeat 40px 30px}
+.wd_search_not dt{font-weight:bold}
+.wd_search_not dd{margin-top:11px;font-size:12px;line-height:18px;color:#999}
+.wd_search_not dd.btn a{margin-right:4px}
+
+.wd_sch_over {overflow:hidden; clear:both; width:576px; padding:20px 0 14px 17px; border-bottom:1px solid #f3f3f4; color:#333; font-weight:bold;}
+.wd_sch_over span {color:#ff6600;}
+.wd_sch_over p {margin-left:3px; padding-top:8px; font-weight:normal;}
+.wd_sch_over_list {margin:15px 0 0 18px;}
+.wd_sch_over_list li {height:23px;}
+.wd_sch_over_list li a {color:#000063; font-size:14px; font-weight:bold; text-decoration:underline;}
+.wd_sch_over_list li a:visited,
+.wd_sch_over_list li a:hover {color:#000063; text-decoration:underline;}
+.wd_sch_over_list li span {margin-left:12px; color:#333; font-size:11px;}
+
+/* 재해재난 (080811 YMJ/ 090416 YBR Modify) */
+.weather_disaster {position:relative; clear:both; float:left; width:593px; margin:25px 0 0 0;}
+.weather_disaster h3 {height:20px; margin:0; padding:0;}
+.weather_disaster h3 img {margin-left:3px; vertical-align:top;}
+.weather_disaster .tbl_disaster_board {width:593px; margin:0; padding:0; border:none; border-top:2px solid #464646; border-bottom:2px solid #464646;}
+.weather_disaster .tbl_disaster_board caption {display:none;}
+.weather_disaster .tbl_disaster_board thead {display:none;}
+.weather_disaster .tbl_disaster_board tr {border:none; vertical-align:top;}
+.weather_disaster .tbl_disaster_board td {padding:8px 0 5px 0; border:none; border-bottom:1px solid #F5F5F5;}
+.weather_disaster .tbl_disaster_board td.num {padding:7px 0 0 6px;}
+.weather_disaster .tbl_disaster_board td.local {padding-top:9px; color:#DBDBDB; font-family:돋움, dotum; font-size:11px; letter-spacing:-1px;}
+.weather_disaster .tbl_disaster_board td.local em {margin:0 -1px; color:#999999; font-family:돋움, dotum; font-size:11px; font-style:normal; letter-spacing:-1px;}
+.weather_disaster .tbl_disaster_board td.title a {color:#333333; font-family:돋움, dotum; font-size:12px; letter-spacing:-1px;}
+.weather_disaster .tbl_disaster_board td.title .reply {margin-left:-1px; color:#6EB93B; font-family:돋움, dotum; font-size:11px;}
+.weather_disaster .tbl_disaster_board td.title img {margin-top:0; vertical-align:top;}
+.weather_disaster .tbl_disaster_board td.writer {padding-top:9px; color:#999999; font-family:돋움, dotum; font-size:11px; letter-spacing:-1px;}
+.weather_disaster .tbl_disaster_board td.date {padding-top:11px; color:#999999; font-family:tahoma; font-size:9px;}
+.weather_disaster .tbl_disaster_board tr.first td {padding-top:12px;}
+.weather_disaster .tbl_disaster_board tr.first td.num {padding-top:11px;}
+.weather_disaster .tbl_disaster_board tr.first td.local {padding-top:13px;}
+.weather_disaster .tbl_disaster_board tr.first td.writer {padding-top:13px;}
+.weather_disaster .tbl_disaster_board tr.first td.date {padding-top:13px;}
+.weather_disaster .tbl_disaster_board tr.end td {padding-bottom:9px; border:none;}
+.weather_disaster .btn_more {position:absolute; right:0; top:5px; padding-left:6px; background:url(https://ssl.pstatic.net/static/weather/images/bu_arr3.gif) no-repeat 0 2px; font-size:11px; letter-spacing:-1px;}
+.weather_disaster .info {width:593px; margin:6px 0 0 0; padding:0; color:#AAAAAA; font-family:돋움, dotum; font-size:11px; letter-spacing:-1px; text-align:right;}
+.weather_disaster .state_alert {position:relative; width:593px; height:145px; background:url(https://ssl.pstatic.net/static/weather/images/bg_disaster.gif) no-repeat 0 0;}
+.weather_disaster .state_alert .st {position:absolute; left:172px; top:24px;}
+.weather_disaster .state_alert .txt {position:absolute; left:172px; top:79px;}
+.weather_disaster .state_alert .btn_alert {position:absolute; right:24px; top:28px;}
+
+/* 090804 추가 */
+h3.ti_region {margin:0 0 13px 10px; letter-spacing:-1px; font-size:14px; color:#343434;}
+p.region_suj {width:312px; float:right; line-height:18px; margin-top:-2px; margin-bottom:20px; color:#666;}
+/* 090804 */
+
+/* 100629 기상특보 추가 */
+.w_news2 {border-top:2px solid #f6f7f8;}
+.w_news2 dt {position:relative; padding:10px 0 8px 14px;}
+.w_news2 dt a {position:absolute; right:13px; top:12px;}
+.w_news2 .thum {display:inline; float:left; margin-left:13px; border:1px solid #d4d4d4;}
+.w_news2 .text {display:inline; float:left; width:120px; margin:2px 0 0 10px;}
+.w_news2 .text .tit {overflow:hidden; *display:inline; font-size:14px; font-weight:bold; line-height:1.4; letter-spacing:-1px; zoom:1;}
+.w_news2 .text .tit a, .w_news .text .tit a:visited, .w_news .text .tit a:hover {color:#000063;}
+.w_news2 .text .date {overflow:hidden; *display:inline; padding-top:2px; color:#ad6161; font-size:11px; zoom:1}
+.w_news2 .text .date img {margin:0 5px; vertical-align:middle;}
+.w_news2 .text .date span {color:#767676; font-size:10px; font-family:tahoma;}
+.w_news2 .news_list {clear:both; width:237px; padding:11px 0 2px 0; margin-left:13px; border-bottom:1px solid #f3f3f4;}
+.w_news2 .news_list li {height:19px; padding-left:8px; background:url(https://ssl.pstatic.net/static/weather/images/bu_dot2.gif) no-repeat 1px 4px; vertical-align:top}
+.w_news2 .news_list li a {display:inline-block; color:#000063; vertical-align:baseline}
+.w_nflash_list {overflow:hidden; position:relative; width:237px; margin:9px 0 0 13px; padding-bottom:9px; border-bottom:1px solid #e4e4e4}
+.w_nflash_list .w_icon{position:absolute; left:0; top:0}
+.w_nflash {clear:both; overflow:hidden; zoom:1}
+.w_nflash .rolling_list_area{overflow:hidden;position:relative;width:237px;height:52px}
+.w_nflash .rolling_list_area ul{position:absolute;top:0;left:0;width:100%;margin:0;padding:0}
+.w_nflash .rolling_list_area ul li{position:relative;width:237px;height:52px;line-height:17px}
+.w_nflash .rolling_list_area ul li a,.w_nflash .rolling_list_area ul li a:hover{color:#000063}
+.w_nflash .rolling_list_area ul li a{display: block;}
+.w_nflash .rolling_list_area ul li a:hover{text-decoration:underline}
+.w_nflash .rolling_list_area ul li strong{display:block;width:185px;margin-left:52px;margin-bottom:3px;color:#000063}
+.w_nflash .rolling_list_area ul li em{display:inline-block;position:absolute;top:-1px;right:1px;padding-left:6px;font-size:10px;font-family:tahoma;font-weight:normal;font-style:normal;color:#767676;background:url(https://ssl.pstatic.net/static/weather/images/bar1.gif) 0 5px no-repeat;text-decoration:none}
+.w_nflash .rolling_list_area ul li span{display:block;padding:0 3px}
+.w_wicon {overflow:hidden; clear:both; margin-top:9px; padding-bottom:2px;}
+.w_wicon li {float:left; padding:0 12px 0 13px; background:url(https://ssl.pstatic.net/static/weather/images/bg_wicon_list.gif) 0 0 no-repeat;}
+.w_wicon li.fir {background:none;}
+.w_wicon li.sec {padding:0 14px 0 15px;}
+
+.paging{position:relative;clear:both;width:572px;margin:32px 0 30px;padding:0 0 0 1px;text-align:center;font-weight:bold}
+.paging_ytn{margin:2px 0 0 0}
+.paging a{display:inline-block;height:15px;margin:0 -4px 0 -2px;padding:1px 9px 0 8px;border-right:1px solid #CCC;border-left:1px solid #CCC;line-height:15px;}
+.paging img{margin-bottom:2px;vertical-align:middle}
+.paging a:link, .paging a:visited, .paging a:active, .paging a:hover{text-decoration:none;color:#404040}
+.paging a:hover{background:#F7F7F7;border-right:1px solid #CCC;border-left:1px solid #CCC}
+.paging a.on:link, .paging a.on:visited, .paging a.on:active, .paging a.on:hover{text-decoration:none;color:#FF8400}
+.paging a.prev, .paging a.next{font-weight:normal;border:none}
+.paging a.listtop{padding:0 7px 0 0;border:none}
+.paging a.next{padding-right:0;border-left:1px solid #CCC}
+.paging a.prev{padding-left:0;border-right:1px solid #CCC}
+.paging a.listtop:hover{border:0}
+.paging a.next:hover{border-right:0}
+.paging a.prev:hover{border-left:0}
+.paging a.prev:hover, .paging a.next:hover, .paging a.listtop:hover{background:#FFF}
+.plus_mobile{position:absolute;right:0;_right:-1px;top:12px}
+.plus_mobile a{display:inline-block;height:28px}
+.plus_mobile .ie6{position:absolute;top:23px;right:0;width:248px;height:142px}
+.layer_mobile{overflow:hidden;position:absolute;z-index:100;right:0;top:23px;width:225px;padding:19px 0 36px 19px;border:2px solid #24b728;background:#fff;letter-spacing:-1px;text-align:left}
+.layer_mobile p{overflow:hidden;margin:0;color:#343434;font-weight:bold;font-family:'굴림',gulim;line-height:17px}
+.layer_mobile p strong{color:#24b728}
+.layer_mobile dl{overflow:hidden;margin-top:-3px;*margin-top:-1px}
+.layer_mobile dt{overflow:hidden;padding-top:15px;color:#333}
+.layer_mobile dd{overflow:hidden;margin:5px 0 0 1px;}
+.layer_mobile dd a{display:inline-block;overflow:hidden;height:20px;background:url(https://ssl.pstatic.net/static/weather/images/sp_mobile.gif) no-repeat;line-height:9999px;vertical-align:top}
+.layer_mobile dd .btn1{width:44px;background-position:0 0}
+.layer_mobile dd .btn2{width:65px;background-position:0 -21px}
+.layer_mobile div{overflow:hidden;position:absolute;right:20px;bottom:3px;*bottom:4px;width:68px;padding-top:83px;background:url(https://ssl.pstatic.net/static/weather/images/sp_mobile.gif) no-repeat 0 -42px;text-align:center}
+.layer_mobile div a{overflow:hidden;display:inline-block;margin-top:6px;color:#888;font-size:11px;text-decoration:underline !important}
+.layer_mobile div a:visited{text-decoration:underline}
+.ct_banner{margin:8px 0 -8px 0}
+
+/* 동네날씨 영역 */
+.weather_graph{position:relative;clear:both;width:593px;height:389px}
+.weather_graph:after{display:block;clear:both;content:''}
+.weather_graph .canvas_graph{position:absolute;top:101px;left:38px}
+.weather_graph .h_date{height:20px;padding-top:9px}
+.weather_graph .h_time{height:20px;padding-top:9px}
+.weather_graph .h_weather{height:26px;padding-top:13px}
+.weather_graph .h_temp{height:73px;padding-top:45px}
+.weather_graph .h_rain{height:50px;padding-top:12px}
+.weather_graph .h_wind{height:48px;padding-top:6px}
+.weather_graph .h_humid{height:47px;padding-top:15px}
+.weather_graph .forecast_tit{float:left;width:36px;border:1px solid #dcdde0;border-bottom:0;color:#555;text-align:center}
+.weather_graph .forecast_tit li{border-bottom:1px solid #dcdde0;font-family:'돋움',dotum;font-size:11px;line-height:14px}
+.weather_graph .forecast_tit li em{font-family:tahoma;font-size:10px;color:#b6b6b6}
+.weather_graph .forecast_cont{overflow:hidden}
+.weather_graph .forecast_cont .info_area{float:left;overflow:hidden;}
+.weather_graph .forecast_cont .h_date{display:block;border-top:1px solid #dcdde0;border-right:1px solid #dcdde0;font-size:12px;line-height:16px;color:#333;text-align:center}
+.weather_graph .forecast_cont .h_time span{font-size:11px;line-height:14px;font-weight:bold;color:#333}
+.weather_graph .forecast_cont .h_weather img{display:inline-block;margin-top:-7px;vertical-align:middle}
+.weather_graph .forecast_cont .h_rain{height:47px;padding-top:15px}
+.weather_graph .forecast_cont .h_wind .ic{display:inline-block;overflow:hidden;width:14px;height:13px;margin-top:10px;background:url(https://ssl.pstatic.net/static/weather/images/ico_wind.gif) no-repeat 0 0;line-height:100px;vertical-align:top}
+.weather_graph .forecast_cont .h_wind .ic.ic_v1{background-position:-15px 0}
+.weather_graph .forecast_cont .h_wind .ic.ic_v2{background-position:100% 0}
+.weather_graph .forecast_cont .h_wind .ic.ic_v3{background-position:100% -13px}
+.weather_graph .forecast_cont .h_wind .ic.ic_v4{background-position:100% -27px}
+.weather_graph .forecast_cont .h_wind .ic.ic_v5{background-position:-15px -27px}
+.weather_graph .forecast_cont .h_wind .ic.ic_v6{background-position:0 -27px}
+.weather_graph .forecast_cont .h_wind .ic.ic_v7{background-position:0 -13px}
+.weather_graph .forecast_cont .h_wind .ic.ic_v8{background-position:0 0}
+.weather_graph .forecast_cont .h_wind .txt{display:block;clear:both;}
+.weather_graph .forecast_cont .tit{background:#fcfcfc}
+.weather_graph .forecast_cont .tit.today{background:#f7f7f7}
+.weather_graph .forecast_cont .graph_bar{display:block;position:relative;width:100%;height:100%}
+.weather_graph .forecast_cont .graph_bar em{display:inline-block;position:absolute;bottom:0;left:16px;width:4px;background:#bdc2c8}
+.weather_graph .forecast_cont .graph_bar em span{position:absolute;top:-15px;left:50%;width:24px;margin-left:-12px;text-align:center}
+.weather_graph .forecast_cont .forecast_lst{float:left;border-top:1px solid #dcdde0;border-right:1px solid #f2f2f2}
+.weather_graph .forecast_cont .forecast_lst li{width:36px;border-bottom:1px solid #dcdde0;font-family:tahoma;font-size:10px;line-height:15px;color:#5c5c5c;text-align:center}
+.weather_graph .forecast_cont .forecast_lst.last{border-right:1px solid #dcdde0}
+
+/* 날씨 홈(동네 날씨 영역) */
+.weather_graph.ty_sml{width:305px;height:255px}
+.weather_graph.ty_sml .forecast_tit{width:44px}
+.weather_graph.ty_sml .canvas_graph{top:68px;left:46px}
+.weather_graph.ty_sml .h_date{height:15px;padding-top:4px}
+.weather_graph.ty_sml .h_time{height:15px;padding-top:2px}
+.weather_graph.ty_sml .h_weather{height:20px;padding-top:8px}
+.weather_graph.ty_sml .h_temp{height:48px;padding-top:20px}
+.weather_graph.ty_sml .h_rain,
+.weather_graph.ty_sml .h_wind{height:40px;padding-top:2px;line-height:1.1}
+.weather_graph.ty_sml .h_humid{height:29px;padding-top:2px;line-height:1.1}
+.weather_graph.ty_sml .forecast_cont .h_date{line-height:14px}
+.weather_graph.ty_sml .h_rain .graph_bar{height:28px;margin-top:12px}
+.weather_graph.ty_sml .h_humid .graph_bar{height:18px;margin-top:12px}
+.weather_graph.ty_sml .forecast_tit,
+.weather_graph.ty_sml .forecast_tit li,
+.weather_graph.ty_sml .forecast_cont .h_date,
+.weather_graph.ty_sml .forecast_cont .forecast_lst,
+.weather_graph.ty_sml .forecast_cont .forecast_lst li{border-color:#d3d3d3 !important}
+
+/* 태풍 테이블 수정 */
+.tp_rank{padding:6px;padding-top:0}
+.tp_table{width:100%;border:1px solid #d9d9d9;background-color:#fff;color:#333;font-family:'굴림',gulim;letter-spacing:-1px;border-collapse:collapse;border-spacing:0;table-layout:fixed}
+.tp_table caption{visibility:hidden;overflow:hidden;position:static;width:100%;height:0;font-size:0;line-height:0}
+.tp_table thead th{background-color:#fafafa;color:#000}
+.tp_table thead th span{font-family:'굴림',gulim;font-size:12px}
+.tp_table tbody th{font-weight:normal}
+.tp_table th,.tp_table td{padding:9px 0 7px;border-right:1px solid #d9d9d9;border-bottom:1px solid #d9d9d9;text-align:center}
+.tp_table th.rank1{background-color:#00ffff;font-size:11px;font-family:tahoma}
+.tp_table th.rank2{background-color:#00ff00;font-size:11px;font-family:tahoma}
+.tp_table th.rank3{background-color:#ffff00;font-size:11px;font-family:tahoma}
+.tp_table th.rank4{background-color:#ff0000;font-size:11px;font-family:tahoma}
+.tp_table th.rank5{background-color:#800080;font-size:11px;font-family:tahoma}
+
+/* 130107 주간날씨 */
+.tbl_today3 {position:relative;margin-top:0;border-color:#d0d0d0}
+.tbl_today3 caption{visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+.tbl_today3 thead th {height:29px;border-bottom-color:#dddddf}
+.tbl_today3 thead th:first-child{border-right:1px solid #d0d0d0}
+.tbl_today3 thead th span {padding-left:3px;height:29px;font-family:tahoma;font-size:11px;font-weight:bold;color:#767676}
+.tbl_today3 tbody td .text {float:none;width:auto;padding:0 20px 0 30px}
+.tbl_today3 tbody td .text li{font-size:12px;font-family:'굴림',gulim}
+.tbl_today3 tbody td{padding:20px 0 13px;border-right-color:#d0d0d0;border-bottom-color:#d0d0d0; zoom:1}
+.tbl_today3 tbody td:after{display:block;clear:both;content:''}
+.tbl_today3 .cell_line{display:block;position:absolute;left:25%;top:51px;bottom:21px;border-right:1px solid #f2f2f2}
+.tbl_today3 .cell_line.line2{left:75%}
+.tbl_today3 .cell{float:left;width:147px}
+.tbl_today3  tbody td .text li.nm{padding-bottom:5px}
+.tbl_today3 tbody td .icon{float:none;margin-top:-13px;text-align:center}
+.tbl_today3 .temp{font-family:tahoma;font-size:16px;font-weight:bold;color:#000}
+.tbl_today3 .dgr{display:inline-block;margin-top:3px;overflow:hidden;width:16px;height:15px;background:url(https://ssl.pstatic.net/static/weather/images/sp_dgr.png) no-repeat 0 0;line-height:9999px;vertical-align:top}
+.tbl_today3 .text .info{line-height:16px}
+.tbl_today4{margin-top:10px;border-top-color:#d0d0d0}
+.tbl_today4 caption{position:static}
+.tbl_today4 tbody th{height:70px;background:#fafafa;border-bottom-color:#dedede;border-right:1px solid #ebedec;color:#333;font-weight:bold;font-family:'굴림',gulim;font-size:12px}
+.tbl_today4 tbody th span{display:block;margin-top:3px;font-family:tahoma;font-size:11px;font-weight:bold;color:#767676}
+.tbl_today4 tbody td{padding:12px 0;border-bottom-color:#dedede;border-right-color:#dddddf;vertical-align:top;zoom:1}
+.tbl_today4 tbody td:after{display:block;clear:both;content:''}
+.tbl_today4 tbody td .text{width:auto}
+.tbl_today4 .cell{float:left;width:234px}
+.tbl_today4 .cell + .cell{padding-left:4px}
+.tbl_today4 .icon{margin:0 23px 0 20px}
+.tbl_today4 .temp{font-family:tahoma;font-weight:bold;color:#000}
+.tbl_today4 .dgr{display:inline-block;overflow:hidden;width:12px;height:11px;margin-top:-4px;background:url(https://ssl.pstatic.net/static/weather/images/sp_dgr.png) no-repeat 0 -22px;line-height:9999px;vertical-align:middle}
+.tbl_today4 tbody td .text{margin-top:5px}
+.tbl_today4 tbody td .text li{font-size:12px;font-family:'굴림',gulim}
+.tbl_today4 tbody td .text li.nm{padding-bottom:4px}
+.tbl_type5{clear:both;width:592px;*width:593px;border:1px solid #ccc;border-collapse:collapse}
+.tbl_type5 caption{visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0}
+.tbl_type5 thead th,.tbl_type5 thead td{height:28px; border:1px solid #ccc;background:#f6f6f6;color:#333;text-align:center}
+.tbl_type5 thead td{height:29px;border-bottom-color:#ccc;background:#fcfcfc;color:#666}
+.tbl_type5 .bdr_r{border-right-color:#f2f2f2}
+.tbl_type5 tbody th,
+.tbl_type5 tbody td{height:39px;font-weight:normal;text-align:center;border:1px solid #ccc;border-bottom-color:#dcdddf}
+.tbl_type5 tr.line th,.tbl_type5 tr.line td{border-bottom-color:#ccc}
+.tbl_type5 .th_type2{background-color:#fcfcfc}
+
+/* skip navigation */
+#u_skip{position:relative;z-index:2147483647}
+#u_skip a{position:absolute;left:0;top:-30px;width:128px;background:url(https://ssl.pstatic.net/static/weather/images/sp_u_skip.png) repeat-x 0 -11px;border:1px solid #4ec53d;text-align:center;outline:none}
+#u_skip a:active,
+#u_skip a:focus{top:0;text-decoration:none;cursor:pointer;zoom:1}
+#u_skip span{display:inline-block;padding:2px 6px 0 0;background:url(https://ssl.pstatic.net/static/weather/images/sp_u_skip.png) no-repeat 100% 11px;font-size:11px;letter-spacing:-1px;color:#fff;line-height:26px}
+
+/* 언론사 관련기사(api영역) */
+.link_news{margin:40px 0 43px !important;overflow:hidden !important;font-family:Dotum,'돋움' !important;font-size:14px !important}
+.link_news h3{padding-bottom:4px !important;color:#000 !important;font-size:14px !important;letter-spacing:-1px !important}
+.link_news h3 span{display:inline-block !important;margin-left:11px !important;padding-left:10px !important;color:#999 !important;font-size:12px !important;font-weight:normal !important;background:url(https://ssl.pstatic.net/static/weather/images/sp_relation.gif) no-repeat 0 -65px !important}
+.link_news ul{padding-left:2px !important}
+.link_news li{height:26px !important;padding-left:12px !important;background:url(https://ssl.pstatic.net/static/weather/images/sp_relation.gif) no-repeat 0 10px !important}
+.link_news li a{display:inline-block !important;max-width:490px !important;height:26px !important;padding-right:1px !important;overflow:hidden !important;color:#2f2f2f !important;line-height:26px !important;white-space:nowrap !important;text-overflow:ellipsis !important;word-wrap:normal !important}
+
+/* 관심지역 날씨 설정 레이어팝업 */
+.ly_area_set{position:fixed;z-index:2200000000;top:0;left:0;right:0;bottom:0}
+.ly_area_set .inner{position:absolute;z-index:10;top:50%;left:50%;width:721px;height:451px;margin:-242px 0 0 -375px;padding:29px 0 0 25px;border:2px solid #333;background:#fff}
+.ly_area_set h4{overflow:hidden;height:34px}
+.ly_area_set h4 span{float:left;overflow:hidden;width:123px;height:16px;background:url(https://ssl.pstatic.net/static/weather/images/sp_weather.png) no-repeat;line-height:100px}
+.ly_area_set h4 .btn_help{float:left;overflow:hidden;margin:1px 0 0 7px;width:14px;height:14px;background:url(https://ssl.pstatic.net/static/weather/images/sp_weather.png) no-repeat -125px 0;line-height:100px}
+.ly_area_set .sel_area{float:left;width:436px;border:1px solid #ccc;border-top:0}
+.ly_area_set .depth > li{float:left;position:relative;height:288px;border-right:1px solid #f2f2f2}
+.ly_area_set .depth > li strong{overflow:hidden;position:absolute;top:0;left:-1px;width:100%;height:28px;border:1px solid #767c89;border-right-color:#696e7a;background:#838a99;color:#bbbec6;line-height:29px;text-align:center}
+.ly_area_set .depth > li strong span{font-weight:normal}
+.ly_area_set .depth > li.v1{z-index:300;width:135px}
+.ly_area_set .depth > li.v2{z-index:200;width:147px}
+.ly_area_set .depth > li.v3{z-index:100;width:152px;border-right:0}
+.ly_area_set .depth > li.v3 strong{border-right-color:#767c89}
+.ly_area_set .depth > .v1 strong,.ly_area_set .depth > .on strong{border:1px solid #4d5362;border-right-color:#4d5362;background:#60687b;color:#fff}
+.ly_area_set .list{overflow:auto;position:absolute;top:30px;left:0;right:-1px;bottom:0;padding-top:5px}
+.ly_area_set .v3 .list{right:0}
+.ly_area_set .list a{display:block;overflow:hidden;height:25px;padding-left:10px;color:#333;letter-spacing:-1px;line-height:26px;text-decoration:none;vertical-align:top}
+.ly_area_set .list a:hover{background:#ecf2f8}
+.ly_area_set .list a.selected{background:#a0bfdd;color:#fff;font-weight:bold}
+.ly_area_set .list a.set{color:#999}
+.ly_area_set .list a.set:hover{background:none}
+.ly_area_set .none{position:absolute;top:30px;left:0;bottom:0;right:0;color:#888;line-height:18px;text-align:center}
+.ly_area_set .none span{display:inline-block;margin-top:111px}
+.ly_area_set .terminal{float:left;margin:0 10px;padding-top:110px}
+.ly_area_set .btn_add{display:block;overflow:hidden;width:60px;height:68px;background:url(https://ssl.pstatic.net/static/weather/images/sp_weather.png) no-repeat 0 -90px;text-indent:-1000px}
+.ly_area_set .btn_add.on{background-position:0 -20px;cursor:pointer}
+.ly_area_set .area_interest{float:left;position:relative;width:176px;height:288px;border:1px solid #ccc;border-top:0}
+.ly_area_set .area_interest strong{overflow:hidden;position:absolute;top:0;left:-1px;width:100%;height:28px;border:1px solid #4d5362;background:#60687b;color:#fff;line-height:29px;text-align:center}
+.ly_area_set .area_interest .list{bottom:24px;right:0;background:#fafbfc}
+.ly_area_set .btn_func{position:absolute;left:0;bottom:0;right:0;height:23px;border-top:1px solid #e1e2e3}
+.ly_area_set .btn_func a{float:left;overflow:hidden;width:23px;height:23px;border-right:1px solid #e1e2e3;background:url(https://ssl.pstatic.net/static/weather/images/sp_weather.png) no-repeat;text-indent:-1000px}
+.ly_area_set .btn_func .btn_up{background-position:-65px -45px}
+.ly_area_set .btn_func .btn_down{background-position:-65px -70px}
+.ly_area_set .btn_func .btn_up.on{background-position:-95px -45px}
+.ly_area_set .btn_func .btn_down.on{background-position:-95px -70px}
+.ly_area_set .btn_func .btn_del{float:right;width:53px;border-left:1px solid #e1e2e3;border-right:0;background-position:-95px -20px}
+.ly_area_set .dsc{overflow:hidden;clear:both;padding-top:9px;color:#999;letter-spacing:-1px;line-height:18px;font-size:11px}
+.ly_area_set .dsc a{margin-left:4px;color:#999;text-decoration:underline}
+.ly_area_set .btn_area{position:absolute;left:0;right:0;bottom:0;height:47px;padding-top:15px;border-top:1px solid #f2f2f2;background:#fafafa;text-align:center}
+.ly_area_set .btn_area a{display:inline-block;overflow:hidden;height:32px;background:url(https://ssl.pstatic.net/static/weather/images/sp_weather.png) no-repeat;text-align:center;line-height:100px;vertical-align:top}
+.ly_area_set .btn_area .btn_save{width:102px;margin-right:2px;background-position:-65px -95px}
+.ly_area_set .btn_area .btn_close{width:72px;background-position:-65px -130px}
+.ly_area_set .btn_close2{overflow:hidden;position:absolute;top:0;right:0;width:45px;height:44px;text-indent:-1000px}
+.ly_area_set .btn_close2 span{display:block;margin:10px 0 0 10px;width:25px;height:24px;background:url(https://ssl.pstatic.net/static/weather/images/sp_weather.png) no-repeat -65px -20px}
+.ly_area_set .dimmed{position:absolute;top:0;left:0;right:0;bottom:0;background:#000;filter:alpha(opacity=50);opacity:0.5}
+
+/* 알림판 */
+.noti_today{margin:8px 0 10px;border:1px solid #ddd}
+.noti_today h3{overflow:hidden;height:36px;padding:0 15px;line-height:36px;font-size:12px;color:#222}
+.noti_today h3 .ico{display:inline-block;width:13px;height:13px;margin:-1px 7px 0 0;background:url(https://ssl.pstatic.net/static/weather/images/sp_ico.png) no-repeat 0 0;vertical-align:text-top}
+.noti_today h3 .atm{width:30px;height:16px;background-position:0 -20px;text-indent:-9999px}
+.noti_today h3 .update{margin-left:2px;font-size:11px;font-weight:normal;color:#a1a1a1}
+.noti_today .cont{padding:8px 14px;border-top:1px solid #ddd}
+.noti_today .cont p{padding-top:4px;line-height:18px;color:#333}
+.noti_today .cont .tit{font-weight:normal;color:#666}
+.noti_today .cont .good{font-weight:bold;color:#4e89f6}
+.noti_today .cont .normal{font-weight:bold;color:#3dc948}
+.noti_today .cont .bitbad{font-weight:bold;color:#ff9804}
+.noti_today .cont .bad{font-weight:bold;color:#ff670b}
+.noti_today .cont .toobad{font-weight:bold;color:#ee090b}
+.noti_today .cont .link{line-height:25px;color:#000063}
+.noti_today .cont .bar{margin:0 1px 0 -1px;color:#ddd}
+
+/* 검색 결과 */
+.sc_result{margin-top:20px}
+.sc_result p{color:#333}
+.sc_result p strong{color:#29a1ff}
+.sc_result ul{overflow:hidden;margin:10px 0 14px;border:1px solid;border-color:#c6c6c6 #fff}
+.sc_result li{float:left;width:50%;*width:49%;margin-top:-1px;border-top:1px solid #f2f2f2}
+.sc_result li a{display:block;float:left;min-height:19px;padding:13px 0 11px 18px;font-size:15px;font-weight:bold;color:#333}
+.sc_result li a span{margin-left:8px;font-size:12px;font-weight:normal;color:#999}
+.sc_result li a strong{color:#29a1ff}
+.paginate{clear:both;margin:0 auto;text-align:center}
+.paginate a,.paginate strong{display:inline-block;overflow:hidden;width:20px;height:20px;margin-left:-4px;font-size:13px !important;line-height:22px;text-align:center}
+.paginate a{color:#999}
+.paginate a:hover{font-weight:bold;color:#29a1ff;text-decoration:underline}
+.paginate strong{color:#29a1ff}
+.paginate .pre,.paginate .next{display:inline-block;width:50px;height:20px;background:url(https://ssl.pstatic.net/static/weather/images/sp_paginate.gif) no-repeat;font-size:12px;text-align:left}
+.paginate a span{display:inline-block}
+.paginate .pre{margin-right:4px;background-position:0 0}
+.paginate .pre span{margin-left:14px}
+.paginate .next{margin-left:4px;background-position:0 -20px}
+.paginate .next span{margin-left:11px}
+
+.section{overflow:hidden;position:relative;margin:8px 0 12px 0;border:1px solid #ddd;}
+.section .og{color:#888;}
+.section .og a{color:#888;}
+.section .btn_mr{position:absolute;top:0;right:0;height:21px;padding:16px 19px 0 0;}
+.news_air {overflow:hidden;padding:17px 19px 13px 19px;}
+.news_air >a{display:block;}
+.news_air a:hover{text-decoration:none}
+.news_air img{float:left;margin:0 14px 0 0;vertical-align:top}
+.news_air strong{color:#333;}
+.news_air em{color:#343434;}
+.news_air p{padding:5px 0 9px 0;color:#000063;line-height:17px}
+.section_head{overflow:hidden;position:relative;height:39px;padding:0 0 0 17px;border-bottom:1px solid #e3e3e3;line-height:37px}
+.section_head h3{padding-top:3px;font-size:12px;color:#030303;}
+.section_head h3 span{font-weight:normal;}
+.section_list{overflow:hidden;width:610px;padding:9px 0 8px 17px;line-height:20px;color:#333;}
+.section_list li{float:left;width:203px;color:#999;}
+.section_list li span{color:#323232;}
+.section_list + .og{display:inline-block;margin:0 0 15px 17px;vertical-align:top}
+
+.good{color:#4e89f6}
+.normal{color:#3dc948}
+.bitbad{color:#ff9804}
+.bad{color:#ff670b}
+.toobad{color:#ee090b}
+
+.list_air{padding:14px 10px 0 13px;}
+.list_air+.list_air{margin-top:45px;}
+#content .list_air h4.new_end_tit{font-size:15px;}
+.list_air .list_air_head{position:relative;padding:0 0 14px}
+.list_air .list_air_head .og{position:absolute;top:3px;right:-2px;color:#888}
+.list_air .list_air_head select{position:absolute;top:-2px;right:0;vertical-align:middle;}
+.list_air_cont_wrap{overflow:hidden;border-top:1px solid #999;border-bottom:1px solid #999;}
+.list_air_cont_wrap .list_air_cont{float:left;width:333px;margin-right:47px;}
+.list_air .sp_air{overflow:hidden;display:inline-block;width:17px;height:17px;margin:-1px 7px 0 0;vertical-align:top;line-height:9999px;background:url(https://ssl.pstatic.net/static/weather/images/sp_air_v2.png) 0 0 no-repeat}
+.list_air .air_ico1{background-position:0 0}
+.list_air .air_ico2{background-position:0 -18px}
+.list_air .air_ico3{background-position:0 -36px}
+.list_air .list_air_cont{display:block;}
+.bx_none{height:165px;margin-bottom:10px;border:1px solid #f3f3f3;text-align:center;color:#2a2a2a;}
+.bx_none img{display:inline-block;margin:37px 0 20px 0;vertical-align:top}
+.list_air .list_air_cont table{width:100%;margin-bottom:10px;table-layout:fixed;border:1px solid #d0d0d0}
+.list_air .list_air_cont_wrap table{margin-top:5px;margin-bottom:5px;border:0}
+.list_air .list_air_cont_wrap tr+tr th,
+.list_air .list_air_cont_wrap tr+tr td{border-top:1px solid #e9e9e9;}
+.list_air .list_air_cont_wrap th,
+.list_air .list_air_cont_wrap td{height:79px;vertical-align:middle;}
+.list_air .list_air_cont_wrap ul{line-height:18px}
+.list_air .list_air_cont_wrap .list_air_inn{padding:2px 0 0 0}
+.list_air .list_air_cont2{overflow:hidden;padding:19px 20px 0 0;}
+.list_air .list_air_cont2 h5{padding-bottom:6px;font-size:12px;font-weight:bold;color:#333;line-height:17px}
+.list_air .list_air_cont2 h5 .sp_air{margin-right:4px;}
+.list_air .list_air_cont2 .air_txt{margin-bottom:38px;line-height:18px;color:#666}
+.list_air .list_air_cont th{font-size:24px;color:#3fa0e4;text-align:center;font-weight:normal}
+.list_air .list_air_cont th em{display:block;font-size:12px;color:#333;font-family:tahoma,sans-serif;line-height:14px}
+.list_air .list_air_cont td{height:72px;text-align:center;color:#2d333a}
+.list_air .list_air_cont td + td{border-left:1px solid #e9e9e9;}
+.list_air .list_air_cont td> strong{display:block;padding-top:6px;}
+.list_air .list_air_cont td em{font-weight:normal;}
+.list_air .list_air_cont>p{margin-bottom:38px;color:#888;}
+.list_air .list_air_cont>p a{color:#888;}
+.list_air_inn{overflow: hidden;display:block;padding:17px 0 14px 32px;text-align:left;line-height:20px}
+.list_air .list_air_cont .list_air_inn h5{float:left;width:86px;padding:0;font-size:12px;}
+.list_air_inn h5 a{color:#333;}
+.list_air_inn h5 a:after{content:'';display:inline-block;width:3px;height:5px;margin:6px 0 0 6px;vertical-align:top;background:url(https://ssl.pstatic.net/static/weather/images/ico_arr.gif) 0 0 no-repeat}
+.list_air_inn ul{overflow: hidden;color:#999;}
+.list_air_inn ul span{display:inline-block;width:64px;color:#333;}
+
+
+.list_air .ipt_v2{display:inline-block;position:absolute;top:-5px;right:0;}
+.ipt_v2 span.show{display:block; position:absolute; right:1px;top:1px;width:22px; height:22px; background:url(https://ssl.pstatic.net/static/weather/images/ico_arr.png) no-repeat 0 0; cursor:pointer;}
+.ipt_v2.on span.show {background-position:0 bottom}
+.ipt_v2 .input_zone{padding-left:8px;border-color:#e5e5e5;line-height:17px}
+.ipt_v2_layer{position:absolute;top:27px;width:100%;}
+.ipt_v2_layer_inn{position:relative;overflow:hidden;overflow-y:auto;max-height:207px;border:1px solid #e5e5e5;line-height:20px;background:#fff}
+.ipt_v2_layer_inn .on a{font-weight:bold;color:#339900;text-decoration:underline;}
+.ipt_v2_layer_inn a{display:block;padding:0 0 0 8px;}

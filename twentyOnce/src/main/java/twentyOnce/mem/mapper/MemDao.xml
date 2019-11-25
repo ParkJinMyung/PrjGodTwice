@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="twentyOnce.mem.dao.MemDao">
+
+<select id="memberCheck" resultType="twentyOnce.mem.dto.MemberDto">
+	SELECT * FROM MEM_MEMBER
+	WHERE ID=#{param1}
+</select>
+
+<select id="dupidCheck" resultType="java.lang.String">
+	SELECT ID
+	FROM MEM_MEMBER
+	WHERE ID=#{param1}	
+</select>
+
+<insert id="memberJoin">
+	INSERT INTO MEM_MEMBER VALUES
+	(#{param1}, #{param2}, #{param3}, #{param4}, #{param5},
+	 #{param6}, 0, 0, #{param7}, 0)
+</insert>
+
+<update id="mempointUpdate">
+	UPDATE MEM_MEMBER
+	SET POINT=#{param2}
+	WHERE ID=#{param1}
+</update>
+
+<update id="pwChange">
+	UPDATE MEM_MEMBER
+	SET PW=#{param2},
+	SALT=#{param3}
+	WHERE ID=#{param1}
+</update>
+
+<!-- 아이디 저장 관련 -->
+
+<delete id="saveidDel">
+	DELETE MEM_IDSAVE
+</delete>
+
+<insert id="saveidAdd">
+	INSERT INTO MEM_IDSAVE VALUES(
+	#{param1}, #{param2}
+	)
+</insert>
+
+<select id="saveidSearch" resultType="twentyOnce.mem.dto.SaveIdDto">
+	SELECT * FROM MEM_IDSAVE
+</select>
+
+</mapper>

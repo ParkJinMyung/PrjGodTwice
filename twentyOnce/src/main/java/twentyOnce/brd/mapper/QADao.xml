@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="twentyOnce.brd.dao.QADao">
+	<sql id="includeBoard">
+		WHERE (${param1} LIKE '%' || #{param2} ||'%')
+	</sql>
+	
+	<sql id="includeList">
+		WHERE (${param3} LIKE '%' || #{param4} ||'%')
+	</sql>
+
+	<select id="list" resultType="twentyOnce.brd.dto.QADto">
+		SELECT NOT_NUM,NOT_TITLE,NOT_CONTENT,NOT_NAME,NOT_DATE,NOT_VIEW
+		FROM
+		(SELECT NOT_NUM, NOT_TITLE, NOT_CONTENT, NOT_NAME, NOT_DATE, NOT_VIEW,
+		ROW_NUMBER() OVER(ORDER BY NOT_NUM DESC) B_SEQ FROM NOT_QATWICE
+		<include refid="includeList" />)
+		WHERE B_SEQ BETWEEN #{param1} AND #{param2}
+	</select>
+	<select id="selectBoardCount" resultType="int">
+		SELECT COUNT(*) FROM NOT_QATWICE
+		<include refid="includeBoard" />
+	</select>
+	<insert id="write">
+		INSERT INTO
+		NOT_QATWICE(NOT_NUM,NOT_NAME,NOT_TITLE,NOT_CONTENT,NOT_VIEW)
+		VALUES(NOT_NOTICE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},0)
+	</insert>
+	<update id="modify">
+		UPDATE NOT_QATWICE SET NOT_NAME=#{param2},
+		NOT_TITLE=#{param3}, NOT_CONTENT=#{param4} WHERE NOT_NUM=#{param1}
+	</update>
+	<delete id="delete">
+		DELETE FROM NOT_QATWICE WHERE NOT_NUM=#{param1}
+	</delete>
+	<update id="hitUp">
+		UPDATE NOT_QATWICE SET NOT_VIEW=NOT_VIEW+1 WHERE
+		NOT_NUM=#{param1}
+	</update>
+	<select id="contentView" resultType="twentyOnce.brd.dto.QADto">
+		SELECT * FROM NOT_QATWICE
+		WHERE NOT_NUM=#{param1}
+	</select>
+	
+	<select id="readReply" resultType="HashMap">
+		SELECT B.RNUM,B.NOT_BNO,B.NOT_RNO,B.NOT_RID,B.NOT_RCONTENT,B.NOT_RDATE
+		FROM
+		(SELECT
+		ROWNUM AS RNUM,
+		A.NOT_BNO,A.NOT_RNO,A.NOT_RID,A.NOT_RCONTENT,A.NOT_RDATE
+		FROM
+		(SELECT
+		NOT_BNO,NOT_RNO,NOT_RID,NOT_RCONTENT,NOT_RDATE FROM NOT_REPLY
+		WHERE
+		NOT_BNO = #{param1} ORDER BY NOT_RNO DESC) A
+		WHERE ROWNUM <![CDATA[<=]]>
+		#{param3}
+		) B
+		WHERE B.RNUM <![CDATA[>=]]>
+		#{param2}
+
+	</select>
+	<select id="selectReplyCount" resultType="int">
+		SELECT COUNT(*) FROM
+		NOT_REPLY WHERE NOT_BNO = #{param1}
+	</select>
+
+
+	<insert id="writeReply">
+		INSERT INTO NOT_REPLY(NOT_BNO, NOT_RNO, NOT_RID,
+		NOT_RCONTENT,NOT_RDATE)
+		VALUES(#{param1}, NOT_REPLY_SEQ.NEXTVAL,
+		#{param2},
+		#{param3},SYSDATE)
+	</insert>
+
+	<delete id="deleteReply">
+		DELETE FROM NOT_REPLY WHERE NOT_RNO =
+		#{param1}
+	</delete>
+
+	<update id="updateReply">
+		UPDATE NOT_REPLY SET NOT_RCONTENT = #{param1} WHERE
+		NOT_RNO = #{param2}
+	</update>
+</mapper>
+
+

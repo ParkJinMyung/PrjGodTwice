@@ -1,0 +1,12 @@
+/**/
+#image{
+    width: 85%;
+    margin-left: 200px;
+}
+#image_ul > li {
+    display: table;
+    float: left;
+    margin: 20px;
+}
+
+

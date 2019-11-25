@@ -1,0 +1,59 @@
+/*메인페이지 이미지*/
+/*
+#main_img {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 90%;
+	z-index: 0;
+	padding: 0;
+	margin: 0;
+	background-image: url(../../image/main/twice.PNG);
+	background-size: cover;
+	background-position: bottom center;
+}
+*/
+html,body {
+	margin: 0;
+	padding: 0;
+}
+.slider {
+	width: 100%;
+    height: 90%;
+	margin: 2em auto;
+	
+}
+
+.slider-wrapper {
+    top: 0;
+    left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.slide {
+	float: left;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 2s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+	opacity: 1;
+}
+#top_menu{
+    z-index: 1;
+}
+#twicelogo img{
+    z-index: 1;
+}
+#lg{
+    z-index: 1;
+}

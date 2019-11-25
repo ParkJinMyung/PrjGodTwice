@@ -1,0 +1,76 @@
+table {
+	border-collapse: collapse;
+	background: #fff;
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	margin: 50px auto;
+	width:80%
+}
+
+thead th {
+	font-family: "맑은 고딕"; /* 글자 스타일 */
+	font-size: 11px; /* 글자 크기 */
+	font-weight: 400; /* 글자 굵기 */
+	color: #fff; /* 글자 색 */
+	text-align: center;
+	padding: 6px;
+	border-bottom: 2px solid #858d99;
+	background-color: #c0c0c0;
+}
+
+tbody tr td {
+	font-family: "맑은 고딕"; /* 글자 스타일 */
+	font-size: 13px; /* 글자 크기 */
+	font-weight: 600; /* 글자 굵기 */
+	color: #5f6062; /* 글자 색 */
+	padding: 5px 5px 5px 5px; /* 내부 간격 시계방향 */
+	border-bottom: 1px solid #e0e0e0;
+}
+
+tbody:hover>tr td {
+	opacity: 0.5;
+}
+
+tbody:hover>tr:hover td {
+	text-shadow: none;
+	color: #2d2d2d;
+	opacity: 1.0;
+}
+
+table.twidth {
+	width:950px; /* 창 크기 */
+}
+
+caption {
+	text-align: left;
+	height: 20px;
+	padding: 5px 0;
+	font-family: "맑은고딕";
+	font-size: 10px;
+}
+
+#content {
+	border: 1px solid #ccc;
+	height: 100px;
+	font-size: 15px;
+}
+
+#foot {
+	
+}
+
+.txt {
+	width: 380px;
+	height: 150px;
+	padding: 5px;
+	margin: 0;
+	background-color: #eee;
+}
+
+a {
+	margin: 20px 20px;
+}
+
+div {
+	margin-left: 100px;
+}

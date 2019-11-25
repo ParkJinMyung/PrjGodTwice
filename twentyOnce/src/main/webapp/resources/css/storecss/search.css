@@ -1,0 +1,54 @@
+
+body{ 
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  top
+ position: absolute;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #EF90FF;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #000000;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #EF90FF;
+  background: #EF90FF;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+Resize the wrap to see the search bar change!
+.wrap{
+  width: 100%;
+  position: absolute;
+  top: 300%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+span{height:40px; width:40px; display:block; position:relative;} 
+
+.demoSpan1:before, .demoSpan1:after{content:''; height:18px; display:block; position:absolute; top:0; left:-3; }
+
+.demoSpan1:before{width:19px; border:3px #ffffff solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;}
+
+.demoSpan1:after{width:4px; background:#ffffff; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:16px; left:22px;}
