@@ -94,12 +94,12 @@
 /* Banner                                                                        */
 /*********************************************************************************/
 
-	#banner 
+	#banner
 	{
-		padding: 15em 0em;
+		padding: 6em 0em;
 	}
 
-	.homepage #banner 
+	.homepage #banner
 	{
 		padding: 15em 0em;
 	}

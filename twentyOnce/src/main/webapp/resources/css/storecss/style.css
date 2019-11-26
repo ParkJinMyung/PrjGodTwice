@@ -11,7 +11,7 @@
 	body {
 		margin: 0px;
 		padding: 0px;
-		background: #000000;
+		background: #180E0B;
 		font-family: 'Raleway', sans-serif;
 		font-size: 11pt;
 		color: #000000;
@@ -26,7 +26,6 @@
 		padding: 0px 0px 20px 0px;
 		letter-spacing: -1px;
 		font-size: 1.8em;
-		text-align: center;
 	}
 
 	p, ol, ul {
@@ -37,7 +36,6 @@
 	p {
 		margin-bottom: 2em;
 		line-height: 160%;
-		text-align: center;
 	}
 
 
@@ -247,10 +245,10 @@
 /* Banner                                                                        */
 /*********************************************************************************/
 
-	#banner 
+	#banner
 	{
 		position: relative;
-		background: url(../../images/storeimg/banner_twice.jpg) no-repeat center; 
+		background: #333 url(../images/banner.jpg) no-repeat center;
 		background-size: cover;
 	}
 	
@@ -266,18 +264,18 @@
 	{
 		position: relative;
 		padding: 6em 0em;
-		background: #191919;
-		color: #A6A6A6;
+		background: #261611;
+		color: #774535;
 	}
 	
 	#main header h2
 	{
-		color: #A6A6A6;
+		color: #bc765f;
 	}
 	
 	#main a
 	{
-		color: #A6A6A6;
+		color: #bc765f;
 	}
 
 /*********************************************************************************/
@@ -299,13 +297,13 @@
 	{
 		position: relative;
 		padding: 6em 0em;
-		background: #212121;
-		color: #EAEAEA;
+		background: #372019;
+		color: #8c5240;
 	}
 	
 	#marketing header h2
 	{
-		color: #A6A6A6;
+		color: #c0745d;
 	}
 
 /*********************************************************************************/
@@ -317,7 +315,7 @@
 		position: relative;
 		padding: 3em 0em;
 		text-align: center;
-		color: #A6A6A6  ;
+		color: #774535;
 	}
 	
 	#copyright .container
@@ -329,28 +327,3 @@
 		text-decoration: none;
 		color: #774535 !important;
 	}		
-	
-	/**************************************************/
-	  *{margin:0;padding:0;}
-    ul,li{list-style:none;}
-    .slide{height:454px;overflow:hidden;position:relative;}
-    .slide ul{width:calc(100% * 4);display:flex;transition:1s;}
-    .slide li{width:calc(100% / 4);height:454px;} 
-    .slide li:nth-child(1){background: url(../../images/storeimg/banner_twice1.png) no-repeat center; }
-    .slide li:nth-child(2){background: url(../../images/storeimg/banner_twice2.jpg) no-repeat center; }
-    .slide li:nth-child(3){background: url(../../images/storeimg/banner_twice3.jpg) no-repeat center; }
-    .slide li:nth-child(4){background: url(../../images/storeimg/banner_twice4.jpg) no-repeat center; }
-    .slide input{display:none;}
-    .slide .bullet{position:absolute;bottom:20px;left:0;right:0;text-align:center;z-index:10;}
-    .slide .bullet label{width:10px;height:10px;border-radius:10px;border:2px solid #666;display:inline-block;background:#fff;font-size:0;transition:0.5s;cursor:pointer;}
-    /* 슬라이드 조작 */
-    #pos1:checked ~ ul{margin-left:0;}
-    #pos2:checked ~ ul{margin-left:-100%;}
-    #pos3:checked ~ ul{margin-left:-200%;}
-    #pos4:checked ~ ul{margin-left:-300%;}
-    /* bullet 조작 */
-    #pos1:checked ~ .bullet label:nth-child(1),
-    #pos2:checked ~ .bullet label:nth-child(2),
-    #pos3:checked ~ .bullet label:nth-child(3),
-    #pos4:checked ~ .bullet label:nth-child(4){background:#666;}
-	

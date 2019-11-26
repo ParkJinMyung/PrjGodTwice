@@ -18,7 +18,7 @@ import twentyOnce.vis.controller.VController;
 import twentyOnce.vis.dto.VisitorDto;
 
 @Controller
-@RequestMapping
+@RequestMapping("/memviews")
 public class LogController {
 	
 	@Autowired
@@ -27,7 +27,7 @@ public class LogController {
 	@Autowired
 	VController vcon;
 	
-	@RequestMapping("/memviews/loginform")
+	@RequestMapping("/loginform")
 	public String loginform(HttpServletRequest request, Model model) {
 		System.out.println("loginform() passing");
 		
@@ -52,7 +52,7 @@ public class LogController {
 		return iddto;
 	}
 
-	/*@RequestMapping("/memviews/loginproc")
+	@RequestMapping("/loginproc")
 	public String loginproc(HttpServletRequest request, Model model, HttpSession session) {
 		System.out.println("loginproc() passing");
 		VisitorDto visdto=(VisitorDto)session.getAttribute("visdto");
@@ -88,7 +88,6 @@ public class LogController {
 				
 				session.setAttribute("memdto", memdto);
 				
-				System.out.println("dkdlelfefefeawfffffffff"+memdto.getId());
 				visdto.setMemberId(memdto.getId());
 			}
 			
@@ -100,62 +99,9 @@ public class LogController {
 		visdto.setVisitCount(visdto.getVisitCount()+1); //방문한 페이지 수
 		vcon.visitUpdate(visdto); //첫 방문
 		
-		return "redirect:/frontAfterviews/twfrontAfter";
+		return "memviews/loginproc";
 	}
-	*/
-	@RequestMapping("/frontAfterviews/twfrontAfter")
-	public String twfrontAfter(HttpServletRequest request, Model model, HttpSession session) {
-		System.out.println("twfrontAfter() passing");
-		String reqid=request.getParameter("id");
-		String reqpw=request.getParameter("pw");
-		
-		if (request.getParameter("saveId")!=null) {
-			System.out.println("아디 저장");
-			
-			saveidDel();
-			
-			saveidAdd(reqid, reqpw);
-			
-		} else {
-			System.out.println("아디 저장 안 함");
-			
-			saveidDel();
-			
-		}
-		
-MemberDto memdto=memberCheck(reqid);
-		
-		if (memdto==null) { //같은 아이디가 없다면
-			
-		} else { //아이디가 맞다면
-			
-			String salt=memdto.getSalt();
-			String pw=memdto.getPw();
-			
-			//비밀번호 확인(sha256)
-			if (pwVerify(reqpw, salt, pw)) { //맞을때
-				
-				session.setAttribute("memdto", memdto);
-				VisitorDto visdto=(VisitorDto)session.getAttribute("visdto");	
-				System.out.println("dkdlelfefefeawfffffffff"+memdto.getId());
-				visdto.setMemberId(memdto.getId());
-				
-			}
-			
-		}
-		
-		model.addAttribute("memdto", memdto);
-		
-		
-		
-		VisitorDto visdto=(VisitorDto)session.getAttribute("visdto");
-		//방문 통계
-		visdto.setVisitCount(visdto.getVisitCount()+1); //방문한 페이지 수
-		vcon.visitUpdate(visdto); //첫 방문
-		
-		return "frontAfterviews/twfrontAfter";
-	}
-	
+
 	private void saveidAdd(String reqid, String reqpw) {
 		System.out.println("saveidAdd() passing");
 		
@@ -208,7 +154,7 @@ MemberDto memdto=memberCheck(reqid);
 		return memdto;
 	}
 	
-	@RequestMapping("/memviews/logout")
+	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request, Model model) {
 		System.out.println("logout() passing");
 		
@@ -217,7 +163,7 @@ MemberDto memdto=memberCheck(reqid);
 		return "redirect:/";
 	}
 
-	@RequestMapping("/memviews/store_logout")
+	@RequestMapping("/store_logout")
 	public String store_logout(HttpServletRequest request, Model model) {
 		System.out.println("store_logout() passing");
 		
