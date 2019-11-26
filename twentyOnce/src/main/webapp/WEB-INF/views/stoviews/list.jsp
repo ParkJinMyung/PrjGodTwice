@@ -25,28 +25,28 @@ System.out.println("시작하는 순서는?");
 if(login) {
 %>
 <%
-	if(memdto.isAdmin()) {
+   if(memdto.isAdmin()) {
 %>
-	<!-- 관리자일 때 -->
- 		<div id="header">
-			<div class="container">
+   <!-- 관리자일 때 -->
+       <div id="header">
+         <div class="container">
 
-				<!-- 로고 -->
-				<div id="logo">
-					<h1><a href="../">twentyOnce</a></h1>
-				</div>
+            <!-- 로고 -->
+            <div id="logo">
+               <h1><a href="../">twentyOnce</a></h1>
+            </div>
 
-				<!-- Nev -->
-				<nav id="nav">
-					<ul>
-						<li class="active"><a href="list">PRODUCTION</a></li>
-						<li><a href="#">SALE</a></li>
-						<li><a href="cartList?userId=<%=memdto.getId() %>">SHOPPING CART</a></li>
-						<li><a href="orderList?userId=<%=memdto.getId()%>">ORDER LIST</a></li>
-						<li><a href="twocolumn2.html">EVENT</a></li>
-						<li><a href="onecolumn.html">COMMUNITY</a></li>
-					</ul>
-				</nav>
+            <!-- Nev -->
+            <nav id="nav">
+               <ul>
+                  <li class="active"><a href="list">PRODUCTION</a></li>
+                  <li><a href="#">SALE</a></li>
+                  <li><a href="cartList?userId=<%=memdto.getId() %>">SHOPPING CART</a></li>
+                  <li><a href="orderList?userId=<%=memdto.getId()%>">ORDER LIST</a></li>
+                  <li><a href="twocolumn2.html">EVENT</a></li>
+                  <li><a href="onecolumn.html">COMMUNITY</a></li>
+               </ul>
+            </nav>
 
 			</div>
 		</div>
@@ -146,47 +146,47 @@ if(login) {
 			</div>
 		</div>
 
-		<div id="main">
-			<div class="container">
-				<div class="row">
-					<div class="8u">
-						<section>
-							<header>
-								<h2>Maecenas luctus lectus at sapien</h2>
-							</header>
-							<p>This is <strong>Autonomy</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
-							<p>Donec leo. Vivamus fermentum nibh in augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend.</p>
-							<p>Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor.</p>
-						</section>
-					</div>
-					<div class="4u">
-						<section>
-							<header>
-								<h2>Lectus at sapien</h2>
-							</header>
-							<ul class="style">
-								<li><a href="#">Pellentesque quis elit non gravida blandit.</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, adipiscing elit.</a></li>
-								<li><a href="#">Phasellus nec erat sit pellentesque congue.</a></li>
-								<li><a href="#">Cras vitae metus pellentesque pharetra.</a></li>
-								<li><a href="#">Maecenas vitae orci vitae  feugiat eleifend.</a></li>
-								<li><a href="#">Pellentesque quis elit non gravida blandit.</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, adipiscing elit.</a></li>
-								<li><a href="#">Maecenas vitae orci  tellus feugiat eleifend.</a></li>
-							</ul>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div id="main">
+         <div class="container">
+            <div class="row">
+               <div class="8u">
+                  <section>
+                     <header>
+                        <h2>Maecenas luctus lectus at sapien</h2>
+                     </header>
+                     <p>This is <strong>Autonomy</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
+                     <p>Donec leo. Vivamus fermentum nibh in augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend.</p>
+                     <p>Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor.</p>
+                  </section>
+               </div>
+               <div class="4u">
+                  <section>
+                     <header>
+                        <h2>Lectus at sapien</h2>
+                     </header>
+                     <ul class="style">
+                        <li><a href="#">Pellentesque quis elit non gravida blandit.</a></li>
+                        <li><a href="#">Lorem ipsum dolor sit amet, adipiscing elit.</a></li>
+                        <li><a href="#">Phasellus nec erat sit pellentesque congue.</a></li>
+                        <li><a href="#">Cras vitae metus pellentesque pharetra.</a></li>
+                        <li><a href="#">Maecenas vitae orci vitae  feugiat eleifend.</a></li>
+                        <li><a href="#">Pellentesque quis elit non gravida blandit.</a></li>
+                        <li><a href="#">Lorem ipsum dolor sit amet, adipiscing elit.</a></li>
+                        <li><a href="#">Maecenas vitae orci  tellus feugiat eleifend.</a></li>
+                     </ul>
+                  </section>
+               </div>
+            </div>
+         </div>
+      </div>
 
-		<!-- Copyright -->
-		<div id="copyright">
-			<div class="container">
-				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
-			</div>
-		</div>
-      	
+      <!-- Copyright -->
+      <div id="copyright">
+         <div class="container">
+            Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+         </div>
+      </div>
+         
       <%
       /* 유저일 때  */
 		} else{
