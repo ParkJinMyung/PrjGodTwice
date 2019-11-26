@@ -52,8 +52,27 @@ if(login) {
 		</div>
 	
 		<!-- 상품 배너 -->
-		<div id="banner">&nbsp;</div>
-
+		<!-- <div id="banner">&nbsp;</div> -->
+		 <div class="slide">
+		    <input type="radio" name="pos" id="pos1" checked>
+		    <input type="radio" name="pos" id="pos2">
+		    <input type="radio" name="pos" id="pos3">
+		    <input type="radio" name="pos" id="pos4">
+		    <ul>
+		      <li></li>
+		      <li></li>
+		      <li></li>
+		      <li></li>
+		    </ul>
+		    <p class="bullet">
+		      <label for="pos1">1</label>
+		      <label for="pos2">2</label>
+		      <label for="pos3">3</label>
+		      <label for="pos4">4</label>
+		    </p>
+		  </div>
+		
+		
 		<div id="featured">
 			<div class="container">
 				<div class="row">
